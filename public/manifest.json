@@ -1,0 +1,10 @@
+{
+  "name": "Senat Mahasiswa Fakultas Teknik UNDIP",
+  "short_name": "SMFT UNDIP",
+  "description": "Kabinet Langkah Karya - Parlemen Bermakna, Langkah Nyata, Karya Berdampak.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060F1D",
+  "theme_color": "#0B1F3A",
+  "icons": []
+}
