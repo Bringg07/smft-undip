@@ -24,20 +24,6 @@ const config: Config = {
           900: "#18181B",
           950: "#09090B",
         },
-        parlemen: {
-          DEFAULT: "#09090B",
-          50: "#FAFAFA",
-          100: "#F4F4F5",
-          200: "#E4E4E7",
-          300: "#D4D4D8",
-          400: "#A1A1AA",
-          500: "#71717A",
-          600: "#52525B",
-          700: "#3F3F46",
-          800: "#27272A",
-          900: "#18181B",
-          950: "#09090B",
-        },
         gold: {
           DEFAULT: "#D4AF37",
           50: "#FBF6E8",
@@ -60,7 +46,6 @@ const config: Config = {
       backgroundImage: {
         // Gradient disesuaikan dengan nuansa hitam-perak metalik logo Parlemen
         "perlemen-gradient": "linear-gradient(180deg, #18181B 0%, #27272A 45%, #09090B 100%)",
-        "parlemen-gradient": "linear-gradient(180deg, #18181B 0%, #27272A 45%, #09090B 100%)",
         "gold-glow": "radial-gradient(circle, rgba(212,175,55,0.35) 0%, rgba(212,175,55,0) 70%)",
       },
       boxShadow: {

@@ -42,6 +42,44 @@ src/
   lib/utils.ts       # helper cn() untuk className
 ```
 
+## Dashboard Admin & Database (Fase 2)
+
+Website kini dilengkapi **dashboard admin** untuk mengelola berita dan program kerja
+langsung dari browser, tanpa menyentuh kode.
+
+### Cara setup (sekali saja)
+
+1. Buat database PostgreSQL serverless gratis di [Neon](https://neon.tech) → salin
+   *connection string* Prisma.
+2. Isi `DATABASE_URL` (dan `AUTH_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`) di file `.env`
+   (lihat `.env.example`).
+3. Terapkan skema database:
+   ```bash
+   npm run db:migrate      # prisma migrate deploy
+   npm run db:seed         # buat akun admin + data awal
+   ```
+4. Jalankan website: `npm run dev`, lalu buka `/admin` dan login dengan email/password
+   dari `ADMIN_EMAIL`/`ADMIN_PASSWORD`.
+
+### Struktur fitur
+
+- `/admin` — dashboard (ringkasan konten)
+- `/admin/berita` — tambah / ubah / hapus berita
+- `/admin/program-kerja` — tambah / ubah / hapus program kerja
+- API: `/api/berita`, `/api/program-kerja` (GET publik, mutasi hanya untuk admin)
+- Auth: NextAuth v5 (credentials) + bcrypt; halaman `/admin` dilindungi middleware
+- Data layer di `src/lib/data.ts` — otomatis fallback ke data statis bila database
+  belum dikonfigurasi, jadi website tetap bisa di-build/ditampilkan tanpa DB.
+
+### Perintah database
+
+```bash
+npm run db:generate   # generate Prisma Client
+npm run db:migrate    # terapkan migration ke database
+npm run db:seed       # isi data awal
+npm run db:studio     # buka Prisma Studio (UI untuk lihat/edit data)
+```
+
 ## Status pengerjaan
 
 ✅ Selesai (sudah di-build & di-lint, siap jalan):
@@ -50,22 +88,17 @@ src/
 - Design system Tailwind (warna, tipografi, shadow, animasi)
 - Navbar responsif + mobile menu
 
-🚧 Belum dikerjakan (scope-nya besar — akan dibangun bertahap di sesi berikutnya):
-- Halaman **Struktur Organisasi** (tree interaktif + search/filter + modal)
-- Halaman **Program Kerja** (timeline per kategori & status)
-- Halaman **Berita**, **Galeri** (masonry), **Dokumen** (kategori + download PDF)
-- Halaman **Aspirasi Mahasiswa** (form + tracking status)
+✅ Selesai:
+- Landing page lengkap, halaman Struktur Organisasi, Program Kerja, Berita (index + detail)
+- Dashboard admin + database: Prisma + PostgreSQL (Neon), NextAuth v5, CRUD berita & program kerja
+- SEO (metadata, OpenGraph, sitemap, robots) & PWA manifest
+
+🚧 Belum dikerjakan (bisa dibangun bertahap berikutnya):
+- Halaman **Galeri** (masonry + lightbox)
+- Halaman **Dokumen** (kategori + download PDF)
 - Halaman **Kontak** (maps, sosmed)
-- **Dashboard Admin** dengan NextAuth/Auth.js
-- Schema **Prisma + PostgreSQL** untuk seluruh entitas (berita, program kerja, pengurus,
-  dokumen, galeri, aspirasi)
 - Integrasi upload file (Supabase Storage / Cloudinary)
 - Deployment config untuk Vercel
-
-Kenapa dipisah: setiap modul di atas (terutama dashboard admin + database + auth) adalah
-proyek tersendiri yang butuh desain skema data, API routes, dan halaman CRUD yang solid.
-Menaruh semuanya sekaligus akan menurunkan kualitas kode. Beri tahu modul mana yang mau
-dikerjakan lebih dulu, saya lanjutkan dari fondasi ini.
 
 ## Catatan font
 

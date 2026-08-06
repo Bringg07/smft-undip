@@ -1,5 +1,6 @@
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -55,6 +56,13 @@ export default function Footer() {
             © {new Date().getFullYear()} Senat Mahasiswa Fakultas Teknik Universitas Diponegoro.
             Seluruh hak cipta dilindungi.
           </p>
+
+          <Link
+            href="/admin"
+            className="font-body text-[11px] uppercase tracking-[0.25em] text-white/30 transition-colors hover:text-gold-300"
+          >
+            Admin Login
+          </Link>
         </div>
       </div>
     </footer>

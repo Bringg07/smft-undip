@@ -1,55 +1,47 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/sections/Footer";
+import ProgramGrid from "@/components/sections/ProgramGrid";
+import { getProgramKerjaList } from "@/lib/data";
 
-const programs = [
-  { title: "Seminar Keilmuan", category: "Komisi 1", status: "Selesai", desc: "Meningkatkan literasi akademik mahasiswa Teknik." },
-  { title: "Advokasi Biaya", category: "Badan Advokasi", status: "Berjalan", desc: "Pendampingan terkait UKT dan fasilitas fakultas." },
-  { title: "Langkah Nyata", category: "Badan Pengembangan Staff", status: "Berjalan", desc: "Pelatihan soft skill untuk staf senat." },
-  // Tambahkan program lainnya di sini
-];
+export const metadata: Metadata = {
+  title: "Program Kerja",
+  description:
+    "Daftar program kerja, agenda kegiatan, dan status progress dari Komisi serta Badan di bawah naungan Senat Mahasiswa Fakultas Teknik UNDIP.",
+  openGraph: {
+    title: "Program Kerja SMFT UNDIP",
+    description: "Lihat daftar program kerja dan pergerakan Senat Mahasiswa FT UNDIP.",
+    siteName: "SMFT UNDIP",
+  },
+};
 
-const categories = ["Semua", "Komisi 1", "Komisi 2", "Badan Advokasi", "Badan Pengembangan Staff"];
+export const revalidate = 60;
 
-export default function ProgramKerjaPage() {
-  const [activeTab, setActiveTab] = useState("Semua");
-
-  const filtered = activeTab === "Semua" 
-    ? programs 
-    : programs.filter(p => p.category === activeTab);
+export default async function ProgramKerjaPage() {
+  const programs = await getProgramKerjaList();
 
   return (
     <main className="min-h-screen bg-perlemen-950">
       <Navbar />
-      <div className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
-        <motion.h1 initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} className="text-4xl font-heading text-white text-center">Program Kerja</motion.h1>
-        
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mt-10">
-          {categories.map(cat => (
-            <button 
-              key={cat}
-              onClick={() => setActiveTab(cat)}
-              className={`px-6 py-2 rounded-full border transition-all ${activeTab === cat ? 'bg-gold-400 text-perlemen-900 border-gold-400' : 'border-gold-400/30 text-gold-300 hover:border-gold-400'}`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gold-glow blur-3xl animate-pulse-glow" />
 
-        {/* List Program */}
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          {filtered.map((p, i) => (
-            <motion.div key={i} initial={{opacity:0}} animate={{opacity:1}} transition={{delay: i * 0.1}} className="p-6 rounded-xl bg-perlemen-900 border border-gold-400/20">
-              <span className="text-[10px] uppercase text-gold-400">{p.category}</span>
-              <h3 className="text-white font-heading mt-2">{p.title}</h3>
-              <p className="text-white/60 text-sm mt-2">{p.desc}</p>
-              <div className="mt-4 inline-block px-3 py-1 rounded text-[10px] bg-gold-400/10 text-gold-300 border border-gold-400/20">{p.status}</div>
-            </motion.div>
-          ))}
+        <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-32">
+          <div className="mb-10 text-center">
+            <p className="font-heading text-xs uppercase tracking-[0.4em] text-gold-300">
+              Agenda &amp; Pergerakan
+            </p>
+            <h1 className="mt-4 font-heading text-4xl text-white md:text-5xl">
+              Program <span className="text-gold-gradient">Kerja</span>
+            </h1>
+            <div className="divider-gold mx-auto mt-6 w-24" />
+            <p className="mx-auto mt-4 max-w-xl font-body text-sm text-white/60 md:text-base">
+              Daftar program kerja dari Komisi dan Badan di bawah naungan Senat Mahasiswa
+              Fakultas Teknik UNDIP, Kabinet Langkah Karya.
+            </p>
+          </div>
+
+          <ProgramGrid programs={programs} />
         </div>
       </div>
       <Footer />

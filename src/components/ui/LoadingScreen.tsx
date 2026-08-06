@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function LoadingScreen() {
   return (
@@ -53,7 +54,13 @@ export default function LoadingScreen() {
             transition={{ y: { duration: 2, repeat: Infinity, ease: "easeInOut" }, rotate: { duration: 2.8, repeat: Infinity, ease: "easeInOut" }, filter: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
             className="relative"
           >
-            <img src="/warnaemas.png" alt="Logo Parlemen" className="h-24 w-24 object-contain" />
+            <Image
+              src="/warnaemas.png"
+              alt="Logo Parlemen (Senat Mahasiswa Fakultas Teknik UNDIP)"
+              width={96}
+              height={96}
+              className="h-24 w-24 object-contain"
+            />
           </motion.div>
         </div>
 

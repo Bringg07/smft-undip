@@ -29,7 +29,7 @@ export default function Aspirasi() {
         alert("Gagal mengirim pesan. Coba lagi nanti.");
         setStatus('idle');
       }
-    } catch (error) {
+    } catch {
       alert("Terjadi kesalahan koneksi.");
       setStatus('idle');
     }
@@ -51,37 +51,60 @@ export default function Aspirasi() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
-              <input 
-                name="nama" 
-                type="text" 
-                placeholder="Nama Lengkap" 
-                required 
-                className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none" 
-              />
-              <input 
-                name="nim" 
-                type="text" 
-                placeholder="NIM" 
-                required 
-                className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none" 
-              />
+              <div>
+                <label htmlFor="aspirasi-nama" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">
+                  Nama Lengkap
+                </label>
+                <input
+                  id="aspirasi-nama"
+                  name="nama"
+                  type="text"
+                  placeholder="Nama Lengkap"
+                  required
+                  className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none"
+                />
+              </div>
+              <div>
+                <label htmlFor="aspirasi-nim" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">
+                  NIM
+                </label>
+                <input
+                  id="aspirasi-nim"
+                  name="nim"
+                  type="text"
+                  placeholder="NIM"
+                  required
+                  className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none"
+                />
+              </div>
             </div>
-            
-            <select name="tujuan" className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none">
-              <option value="Umum">Tujuan Aspirasi (Komisi/Badan)</option>
-              <option value="Komisi 1">Komisi 1</option>
-              <option value="Komisi 2">Komisi 2</option>
-              <option value="Badan Advokasi">Badan Advokasi</option>
-              <option value="Lainnya">Lainnya</option>
-            </select>
 
-            <textarea 
-              name="pesan" 
-              placeholder="Tuliskan aspirasi Anda di sini..." 
-              rows={4} 
-              required 
-              className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none"
-            ></textarea>
+            <div>
+              <label htmlFor="aspirasi-tujuan" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">
+                Tujuan Aspirasi
+              </label>
+              <select id="aspirasi-tujuan" name="tujuan" className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none">
+                <option value="Umum">Tujuan Aspirasi (Komisi/Badan)</option>
+                <option value="Komisi 1">Komisi 1</option>
+                <option value="Komisi 2">Komisi 2</option>
+                <option value="Badan Advokasi">Badan Advokasi</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="aspirasi-pesan" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">
+                Pesan Aspirasi
+              </label>
+              <textarea
+                id="aspirasi-pesan"
+                name="pesan"
+                placeholder="Tuliskan aspirasi Anda di sini..."
+                rows={4}
+                required
+                className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none"
+              ></textarea>
+            </div>
 
             <button 
               type="submit" 

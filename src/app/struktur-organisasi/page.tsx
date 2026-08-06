@@ -26,7 +26,7 @@ const STRUKTUR = {
     { name: "Paquita Ratu Saffana", role: "Senator" },
     { name: "Hendra Pramadhi", role: "Senator" },
     { name: "Dafa Briangga", role: "Senator" },
-    { name: "Callysta Aurelia", role: "Staff Ahli" },
+    { name: "Calista Aurelia", role: "Staff Ahli" },
     { name: "Iswatun Nurfiana", role: "Staff Ahli" },
     { name: "Raihan Islamy Setiabudi", role: "Staff Ahli" },
     { name: "Alizaki Santoso", role: "Staff Ahli" },
@@ -125,7 +125,7 @@ const getRoleBadgeClass = (role: string) => {
     case "Senator":
       return "border-gold-400/40 bg-gold-400/15 text-gold-300";
     case "Staff Ahli":
-      return "border-slate-400/30 bg-slate-400/10 text-slate-300";
+      return "border-perlemen-400/30 bg-perlemen-400/10 text-perlemen-300";
     default:
       return "border-gold-400/20 bg-gold-400/10 text-gold-300/95";
   }
@@ -136,7 +136,7 @@ export default function StrukturOrganisasi() {
   const currentMembers = STRUKTUR[unit as keyof typeof STRUKTUR] ?? [];
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(251,191,36,0.15),_transparent_35%),linear-gradient(135deg,_#030712,_#0f172a_55%,_#111827)] pt-32 pb-20">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.15),_transparent_35%),linear-gradient(135deg,_#09090b,_#18181b_55%,_#27272a)] pt-32 pb-20">
       <Navbar />
       <div className="mx-auto max-w-6xl px-6">
         <div className="relative mb-10 overflow-hidden rounded-[2rem] border border-gold-400/25 bg-black/25 px-8 py-10 text-center shadow-[0_25px_90px_rgba(0,0,0,0.4)] backdrop-blur-md sm:px-12">
@@ -144,12 +144,12 @@ export default function StrukturOrganisasi() {
           <div className="absolute left-1/2 top-0 h-24 w-24 -translate-x-1/2 rounded-full bg-gold-400/15 blur-3xl" />
           <div className="relative">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.45em] text-gold-400/95">
-              Executive Board Profile
+              Profil Kepengurusan
             </p>
             <h1 className="font-heading text-4xl font-black tracking-[0.02em] text-white sm:text-5xl">
               Struktur Organisasi
             </h1>
-            <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-perlemen-300 sm:text-base">
               Susunan kepengurusan disajikan dengan nuansa formal, berkelas, dan simetris seperti profil dewan eksekutif.
             </p>
           </div>
@@ -162,7 +162,7 @@ export default function StrukturOrganisasi() {
               onClick={() => setUnit(key)}
               className={`rounded-full border px-4 py-2 text-sm font-semibold tracking-[0.18em] transition-all duration-300 ${
                 unit === key
-                  ? "border-gold-400 bg-gold-400 text-perlemen-950 shadow-[0_0_25px_rgba(251,191,36,0.25)]"
+                  ? "border-gold-400 bg-gold-400 text-perlemen-950 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
                   : "border-gold-400/20 bg-white/5 text-gold-400 hover:border-gold-400 hover:bg-gold-400/10"
               }`}
             >
@@ -171,11 +171,11 @@ export default function StrukturOrganisasi() {
           ))}
         </div>
 
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-slate-400">
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-perlemen-400">
           <span className="rounded-full border border-gold-400/30 bg-gold-400/10 px-3 py-1 text-gold-300">
             Senator
           </span>
-          <span className="rounded-full border border-slate-400/30 bg-slate-400/10 px-3 py-1 text-slate-300">
+          <span className="rounded-full border border-perlemen-400/30 bg-perlemen-400/10 px-3 py-1 text-perlemen-300">
             Staff Ahli
           </span>
         </div>
@@ -196,13 +196,13 @@ export default function StrukturOrganisasi() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.03, duration: 0.25 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className="group relative overflow-hidden rounded-[1.45rem] border border-gold-400/20 bg-gradient-to-br from-slate-900 via-slate-900 to-black p-5 shadow-[0_18px_55px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-[0_0_35px_rgba(251,191,36,0.22)]"
+                className="group relative overflow-hidden rounded-[1.45rem] border border-gold-400/20 bg-gradient-to-br from-perlemen-900 via-perlemen-900 to-black p-5 shadow-[0_18px_55px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-[0_0_35px_rgba(212,175,55,0.22)]"
               >
-                <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-gold-400 via-amber-300 to-gold-500" />
+                <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500" />
                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold-400/10 blur-3xl" />
                 <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-gold-400/10 to-transparent" />
                 <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-gold-400/30 bg-gradient-to-br from-gold-400/20 to-slate-800 text-sm font-bold tracking-[0.2em] text-gold-300">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-gold-400/30 bg-gradient-to-br from-gold-400/20 to-perlemen-800 text-sm font-bold tracking-[0.2em] text-gold-300">
                     {getInitials(person.name)}
                   </div>
                   <div className="min-w-0 flex-1">
@@ -220,11 +220,11 @@ export default function StrukturOrganisasi() {
                   </div>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between text-[11px] text-slate-300">
+                <div className="mt-5 flex items-center justify-between text-[11px] text-perlemen-300">
                   <span className="rounded-full border border-gold-400/20 bg-gold-400/10 px-2.5 py-1 font-medium tracking-[0.18em] text-gold-300/95">
                     {unit}
                   </span>
-                  <span className="rounded-full bg-white/5 px-2.5 py-1 text-slate-400 transition-colors group-hover:text-gold-300">
+                  <span className="rounded-full bg-white/5 px-2.5 py-1 text-perlemen-400 transition-colors group-hover:text-gold-300">
                     #{i + 1}
                   </span>
                 </div>

@@ -13,7 +13,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   // Efek loading hanya saat pertama kali buka
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // 2 detik loading
+    const timer = setTimeout(() => setLoading(false), 1500); // 1.5 detik loading
     return () => clearTimeout(timer);
   }, []);
 
@@ -30,7 +30,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <NextTopLoader color="#fbbf24" height={3} showSpinner={false} />
+            <NextTopLoader color="#d4af37" height={3} showSpinner={false} />
             {children}
             <ScrollToTop />
           </motion.div>

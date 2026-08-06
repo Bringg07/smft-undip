@@ -1,0 +1,52 @@
+// Prisma schema — SMFT UNDIP
+// Database: PostgreSQL (mis. Neon serverless)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Akun admin untuk dashboard (/admin)
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  role         String   @default("admin")
+  createdAt    DateTime @default(now())
+}
+
+// Artikel berita publik
+model Berita {
+  id        Int      @id @default(autoincrement())
+  title     String
+  excerpt   String
+  content   String[] // daftar paragraf isi berita
+  category  String
+  author    String
+  date      String // tanggal tampil, mis. "25 Juli 2026"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Program kerja
+model ProgramKerja {
+  id        Int      @id @default(autoincrement())
+  title     String
+  category  String // Komisi 1, Badan Advokasi, dst.
+  status    Status   @default(Berjalan)
+  desc      String
+  periode   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Status {
+  Selesai
+  Berjalan
+  Segera
+}
