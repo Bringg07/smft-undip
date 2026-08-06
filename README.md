@@ -49,10 +49,13 @@ langsung dari browser, tanpa menyentuh kode.
 
 ### Cara setup (sekali saja)
 
-1. Buat database PostgreSQL serverless gratis di [Neon](https://neon.tech) → salin
-   *connection string* Prisma.
-2. Isi `DATABASE_URL` (dan `AUTH_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`) di file `.env`
-   (lihat `.env.example`).
+1. Buat database PostgreSQL gratis — pilih salah satu:
+   - **[Neon](https://neon.tech)** → Connection Details → Prisma, isi `DATABASE_URL`.
+   - **[Supabase](https://supabase.com)** → Project Settings → Database → Connection
+     string: salin **Transaction** (port 6543) ke `DATABASE_URL` (tambah
+     `?pgbouncer=true&connection_limit=1`), dan **Direct** (port 5432) ke `DIRECT_URL`.
+2. Isi `DATABASE_URL`, `DIRECT_URL` (jika ada), `AUTH_SECRET`, `ADMIN_EMAIL`,
+   `ADMIN_PASSWORD` di file `.env` (lihat `.env.example`).
 3. Terapkan skema database:
    ```bash
    npm run db:migrate      # prisma migrate deploy
