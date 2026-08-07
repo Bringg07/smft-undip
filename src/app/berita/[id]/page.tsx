@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, CalendarDays, User } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/sections/Footer";
+import Markdown from "@/components/ui/Markdown";
 import { getBeritaById, getBeritaList } from "@/lib/data";
 
 export async function generateStaticParams() {
@@ -83,12 +84,8 @@ export default async function BeritaDetailPage({
 
             <div className="divider-gold my-8 w-24" />
 
-            <div className="space-y-6">
-              {article.content.map((paragraph, i) => (
-                <p key={i} className="font-body text-base leading-relaxed text-white/75 md:text-lg">
-                  {paragraph}
-                </p>
-              ))}
+            <div className="[&_p]:font-body [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-white/75 md:[&_p]:text-lg">
+              <Markdown text={article.content.join("\n\n")} />
             </div>
           </div>
 

@@ -305,15 +305,16 @@ export default function AdminBeritaPage() {
 
           <div>
             <label htmlFor="b-content" className={labelClass}>
-              Isi Berita (pisahkan paragraf dengan baris kosong)
+              Isi Berita
             </label>
             <textarea
               id="b-content"
               className={inputClass}
-              rows={8}
+              rows={10}
               value={form.content}
               onChange={(e) => setForm({ ...form, content: e.target.value })}
               required
+              placeholder={"Pisahkan paragraf dengan baris kosong.\n\nMendukung Markdown sederhana:\n## Judul Bagian, **teks tebal**, *teks miring*, [tautan](https://...), - poin list, > kutipan."}
             />
           </div>
 

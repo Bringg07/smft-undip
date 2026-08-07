@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { articles as fallbackArticles, type Berita } from "@/lib/berita";
 import { programs as fallbackPrograms, type ProgramKerja } from "@/lib/program-kerja";
 import { pengurusList as fallbackPengurus, type Pengurus } from "@/lib/pengurus";
+import { anggotaStrukturList as fallbackStruktur, type AnggotaStruktur } from "@/lib/struktur";
 
 /**
  * Data layer SMFT UNDIP.
@@ -124,6 +125,23 @@ export async function getPengurusList(): Promise<Pengurus[]> {
     }));
   } catch {
     return fallbackPengurus;
+  }
+}
+
+export async function getStrukturList(): Promise<AnggotaStruktur[]> {
+  try {
+    const rows = await prisma.anggotaStruktur.findMany({
+      orderBy: [{ urutan: "asc" }, { id: "asc" }],
+    });
+    return rows.map((r) => ({
+      id: r.id,
+      unit: r.unit,
+      nama: r.nama,
+      peran: r.peran,
+      urutan: r.urutan,
+    }));
+  } catch {
+    return fallbackStruktur;
   }
 }
 

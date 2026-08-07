@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { articles } from "../src/lib/berita";
 import { programs } from "../src/lib/program-kerja";
 import { pengurusList } from "../src/lib/pengurus";
+import { anggotaStrukturList } from "../src/lib/struktur";
 
 const prisma = new PrismaClient();
 
@@ -68,6 +69,19 @@ async function main() {
       })),
     });
     console.log(`✓ ${pengurusList.length} pengurus awal di-seed`);
+  }
+
+  // 5. Data awal anggota struktur (hanya bila tabel kosong)
+  if ((await prisma.anggotaStruktur.count()) === 0) {
+    await prisma.anggotaStruktur.createMany({
+      data: anggotaStrukturList.map((a) => ({
+        unit: a.unit,
+        nama: a.nama,
+        peran: a.peran,
+        urutan: a.urutan,
+      })),
+    });
+    console.log(`✓ ${anggotaStrukturList.length} anggota struktur di-seed`);
   }
 }
 

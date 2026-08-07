@@ -1,69 +1,117 @@
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+const navLinks = [
+  { href: "/", label: "Beranda" },
+  { href: "/berita", label: "Berita" },
+  { href: "/program-kerja", label: "Program Kerja" },
+  { href: "/struktur-organisasi", label: "Struktur Organisasi" },
+  { href: "/galeri", label: "Galeri" },
+  { href: "/dokumen", label: "Dokumen" },
+  { href: "/kontak", label: "Kontak" },
+];
 
 export default function Footer() {
   return (
     <footer className="border-t border-gold-400/15 bg-perlemen-950 py-14">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col items-center gap-6 text-center">
-          
-          {/* Bagian Logo Footer */}
-          <div className="flex items-center justify-center gap-4">
-            <Image
-              src="/senat.png"
-              alt="Logo Senat"
-              width={60}
-              height={60}
-              className="object-contain"
-            />
-            <Image
-              src="/parlemen.png"
-              alt="Logo Kabinet"
-              width={60}
-              height={60}
-              className="object-contain"
-            />
+        <div className="grid gap-10 md:grid-cols-3">
+          {/* Identitas */}
+          <div className="flex flex-col items-center gap-6 text-center md:items-start md:text-left">
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/senat.png"
+                alt="Logo Senat"
+                width={56}
+                height={56}
+                className="object-contain"
+              />
+              <Image
+                src="/parlemen.png"
+                alt="Logo Kabinet"
+                width={56}
+                height={56}
+                className="object-contain"
+              />
+            </div>
+            <div>
+              <p className="font-heading text-sm tracking-[0.25em] text-gold-300">
+                SENAT MAHASISWA FAKULTAS TEKNIK UNDIP
+              </p>
+              <p className="mt-1 font-body text-xs text-white/50">Kabinet Langkah Karya</p>
+            </div>
+            <div className="flex items-center gap-2 font-body text-xs text-white/40">
+              <MapPin size={14} />
+              <span>Fakultas Teknik, Universitas Diponegoro, Semarang</span>
+            </div>
           </div>
 
-          <div>
-            <p className="font-heading text-sm tracking-[0.25em] text-gold-300">
-              SENAT MAHASISWA FAKULTAS TEKNIK UNDIP
+          {/* Navigasi */}
+          <div className="text-center md:text-left">
+            <p className="font-heading text-xs uppercase tracking-[0.3em] text-gold-300">
+              Navigasi
             </p>
-            <p className="mt-1 font-body text-xs text-white/50">Kabinet Langkah Karya</p>
+            <ul className="mt-4 space-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="group inline-flex items-center gap-1 font-body text-sm text-white/60 transition-colors hover:text-gold-300"
+                  >
+                    {link.label}
+                    <ArrowUpRight
+                      size={12}
+                      className="opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="flex gap-5 text-white/60">
-            <a href="mailto:smft@undip.ac.id" aria-label="Email" className="hover:text-gold-300">
-              <Mail size={18} />
-            </a>
-            <a href="https://www.instagram.com/smftundip/" aria-label="Instagram" className="hover:text-gold-300">
-              <Instagram size={18} />
-            </a>
-            <a href="https://wa.me/6280000000000" aria-label="WhatsApp" className="hover:text-gold-300">
-              <Phone size={18} />
-            </a>
+          {/* Kontak & Sosmed */}
+          <div className="text-center md:text-left">
+            <p className="font-heading text-xs uppercase tracking-[0.3em] text-gold-300">
+              Hubungi Kami
+            </p>
+            <ul className="mt-4 space-y-2.5 font-body text-sm text-white/60">
+              <li>
+                <a href="mailto:smft@undip.ac.id" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
+                  <Mail size={14} /> smft@undip.ac.id
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/smftundip/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
+                  <Instagram size={14} /> @smftundip
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/6280000000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
+                  <Phone size={14} /> WhatsApp Sekretariat
+                </a>
+              </li>
+            </ul>
+            <div className="mt-6 flex justify-center gap-5 text-white/60 md:justify-start">
+              <a href="mailto:smft@undip.ac.id" aria-label="Email" className="transition-colors hover:text-gold-300">
+                <Mail size={18} />
+              </a>
+              <a href="https://www.instagram.com/smftundip/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-gold-300">
+                <Instagram size={18} />
+              </a>
+              <a href="https://wa.me/6280000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="transition-colors hover:text-gold-300">
+                <Phone size={18} />
+              </a>
+            </div>
           </div>
-
-          <div className="flex items-center gap-2 font-body text-xs text-white/40">
-            <MapPin size={14} />
-            <span>Fakultas Teknik, Universitas Diponegoro, Semarang</span>
-          </div>
-
-          <div className="divider-gold w-full max-w-xs" />
-
-          <p className="font-body text-xs text-white/40">
-            © {new Date().getFullYear()} Senat Mahasiswa Fakultas Teknik Universitas Diponegoro.
-            Seluruh hak cipta dilindungi.
-          </p>
-
-          <Link
-            href="/admin"
-            className="font-body text-[11px] uppercase tracking-[0.25em] text-white/30 transition-colors hover:text-gold-300"
-          >
-            Admin Login
-          </Link>
         </div>
+
+        <div className="divider-gold my-8 w-full max-w-xs mx-auto md:mx-0" />
+
+        <p className="text-justify font-body text-xs text-white/40">
+          © {new Date().getFullYear()} Senat Mahasiswa Fakultas Teknik Universitas Diponegoro.
+          Seluruh hak cipta dilindungi.
+        </p>
       </div>
     </footer>
   );

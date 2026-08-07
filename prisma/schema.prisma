@@ -82,6 +82,15 @@ model Dokumen {
   createdAt DateTime @default(now())
 }
 
+// Anggota struktur organisasi (Senator / Staff Ahli per unit/badan)
+model AnggotaStruktur {
+  id     Int    @id @default(autoincrement())
+  unit   String // Badan BKSAP, Komisi 1, dst.
+  nama   String
+  peran  String // Senator | Staff Ahli
+  urutan Int    @default(0)
+}
+
 // Program kerja
 model ProgramKerja {
   id        Int      @id @default(autoincrement())
