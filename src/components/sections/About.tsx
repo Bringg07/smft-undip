@@ -10,6 +10,8 @@ const stats = [
   { value: 1, label: "Lembaga Parlemen Mahasiswa" },
 ];
 
+const fungsi = ["Representasi", "Legislasi", "Pengawasan", "Penganggaran", "Advokasi"];
+
 function Counter({ to }: { to: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -26,7 +28,7 @@ function Counter({ to }: { to: number }) {
   }, [inView, to]);
 
   return (
-    <span ref={ref} className="font-heading text-5xl text-gold-gradient md:text-6xl">
+    <span ref={ref} className="font-heading text-4xl text-gold-gradient md:text-5xl">
       {display}
     </span>
   );
@@ -34,53 +36,60 @@ function Counter({ to }: { to: number }) {
 
 export default function About() {
   return (
-    <section id="tentang" className="relative bg-perlemen-950 py-28">
-      <div className="mx-auto max-w-5xl px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-heading text-xs uppercase tracking-[0.4em] text-gold-300"
-        >
-          Tentang Kami
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="mt-4 font-heading text-2xl text-white md:text-4xl"
-        >
-          Senat Mahasiswa Fakultas Teknik UNDIP
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mx-auto mt-6 max-w-3xl font-body text-base leading-relaxed text-white/70 md:text-lg"
-        >
-          Senat Mahasiswa Fakultas Teknik Universitas Diponegoro merupakan lembaga legislatif
-          mahasiswa yang menjalankan fungsi representasi, legislasi, pengawasan, penganggaran,
-          dan advokasi guna mewadahi aspirasi mahasiswa Fakultas Teknik serta mendorong tata
-          kelola organisasi kemahasiswaan yang akuntabel, sinergis, adaptif, progresif, dan
-          berdampak.
-        </motion.p>
+    <section id="tentang" className="relative bg-parlemen-950 py-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          {/* Kolom pengantar */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="font-heading text-xs uppercase tracking-[0.4em] text-gold-300">
+              Tentang Kami
+            </p>
+            <h2 className="mt-4 font-heading text-2xl leading-snug text-white md:text-4xl">
+              Lembaga legislatif mahasiswa Fakultas Teknik UNDIP
+            </h2>
+            <div className="divider-gold my-6 w-24" />
+            <p className="font-body text-base leading-relaxed text-white/70 md:text-lg">
+              Senat Mahasiswa Fakultas Teknik Universitas Diponegoro merupakan lembaga legislatif
+              mahasiswa. Lima fungsi utama kami — representasi, legislasi, pengawasan, penganggaran,
+              dan advokasi — dijalankan untuk menampung aspirasi mahasiswa Fakultas Teknik serta
+              menjaga tata kelola organisasi kemahasiswaan yang sehat dan terbuka.
+            </p>
+            <ul className="mt-8 flex flex-wrap gap-2">
+              {fungsi.map((f) => (
+                <li
+                  key={f}
+                  className="rounded-full border border-gold-400/20 bg-gold-400/5 px-3 py-1 font-body text-[11px] uppercase tracking-[0.2em] text-gold-200"
+                >
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-8 md:grid-cols-4">
-          {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12 }}
-              className="glass rounded-xl2 px-4 py-8"
-            >
-              <Counter to={s.value} />
-              <p className="mt-3 font-body text-xs leading-snug text-white/60">{s.label}</p>
-            </motion.div>
-          ))}
+          {/* Kolom statistik */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:sticky lg:top-28"
+          >
+            <div className="divide-y divide-gold-400/10 border-y border-gold-400/10">
+              {stats.map((s) => (
+                <div key={s.label} className="flex items-baseline justify-between gap-6 py-6">
+                  <Counter to={s.value} />
+                  <p className="text-right font-body text-sm leading-snug text-white/60">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

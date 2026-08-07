@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle noise texture overlay, layered on dark perlemen backgrounds */
+/* Subtle noise texture overlay, layered on dark parlemen backgrounds */
 .noise-overlay {
   position: relative;
 }

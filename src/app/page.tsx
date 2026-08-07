@@ -3,7 +3,6 @@ import Navbar from "@/components/ui/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Vision from "@/components/sections/Vision";
-import Mission from "@/components/sections/Mission";
 import CabinetPhilosophy from "@/components/sections/CabinetPhilosophy";
 import Values from "@/components/sections/Values";
 import LogoPhilosophy from "@/components/sections/LogoPhilosophy";
@@ -12,8 +11,8 @@ import Aspirasi from "@/components/sections/Aspirasi";
 import Footer from "@/components/sections/Footer";
 import { getPengurusList } from "@/lib/data";
 
-// Catatan: openGraph, twitter, dan images diwarisi dari layout.tsx agar
-// tidak ada field yang tertimpa (metadata Next.js di-merge secara shallow).
+// Metadata openGraph/twitter/images diwarisi dari layout.tsx agar tidak tertimpa
+// (metadata Next.js di-merge secara shallow).
 export const metadata: Metadata = {
   title: {
     absolute: "Senat Mahasiswa Fakultas Teknik UNDIP | Kabinet Langkah Karya",
@@ -22,8 +21,6 @@ export const metadata: Metadata = {
     "Parlemen Bermakna, Langkah Nyata, Karya Berdampak. Website resmi Senat Mahasiswa Fakultas Teknik Universitas Diponegoro, Kabinet Langkah Karya.",
 };
 
-// Catatan: setiap section sudah memiliki animasi whileInView sendiri,
-// sehingga tidak perlu dibungkus animasi tambahan di level halaman.
 export default async function Home() {
   const pengurus = await getPengurusList();
 
@@ -33,7 +30,6 @@ export default async function Home() {
       <Hero />
       <About />
       <Vision />
-      <Mission />
       <CabinetPhilosophy />
       <Values />
       <LogoPhilosophy />

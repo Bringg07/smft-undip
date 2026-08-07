@@ -18,7 +18,7 @@ export default async function StrukturOrganisasiPage() {
   const anggota = await getStrukturList();
 
   return (
-    <main className="min-h-screen bg-perlemen-950">
+    <main className="min-h-screen bg-parlemen-950">
       <Navbar />
       <div className="relative overflow-hidden">
         {/* Dekorasi latar khas halaman struktur organisasi */}
@@ -35,8 +35,9 @@ export default async function StrukturOrganisasiPage() {
               <h1 className="font-heading text-4xl font-black tracking-[0.02em] text-white sm:text-5xl">
                 Struktur Organisasi
               </h1>
-              <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-perlemen-300 sm:text-base">
-                Susunan kepengurusan disajikan dengan nuansa formal, berkelas, dan simetris seperti profil dewan eksekutif.
+              <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-parlemen-300 sm:text-base">
+                Susunan senator dan staf ahli Kabinet Langkah Karya periode 2026/2027,
+                tersebar di lima badan dan empat komisi Senat Mahasiswa Fakultas Teknik UNDIP.
               </p>
             </div>
           </div>

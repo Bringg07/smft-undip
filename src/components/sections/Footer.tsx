@@ -14,7 +14,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gold-400/15 bg-perlemen-950 py-14">
+    <footer className="border-t border-gold-400/15 bg-parlemen-950 py-14">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-10 md:grid-cols-3">
           {/* Identitas */}
@@ -87,8 +87,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/6280000000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
-                  <Phone size={14} /> WhatsApp Sekretariat
+                <a href="https://wa.me/628383443886" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
+                  <Phone size={14} /> +62 838-3443-886
                 </a>
               </li>
             </ul>
@@ -99,7 +99,7 @@ export default function Footer() {
               <a href="https://www.instagram.com/smftundip/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-gold-300">
                 <Instagram size={18} />
               </a>
-              <a href="https://wa.me/6280000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="transition-colors hover:text-gold-300">
+              <a href="https://wa.me/628383443886" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="transition-colors hover:text-gold-300">
                 <Phone size={18} />
               </a>
             </div>
@@ -110,7 +110,7 @@ export default function Footer() {
 
         <p className="text-justify font-body text-xs text-white/40">
           © {new Date().getFullYear()} Senat Mahasiswa Fakultas Teknik Universitas Diponegoro.
-          Seluruh hak cipta dilindungi.
+          Hak cipta dilindungi undang-undang.
         </p>
       </div>
     </footer>

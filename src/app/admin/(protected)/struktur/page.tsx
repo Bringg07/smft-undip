@@ -129,7 +129,7 @@ export default function AdminStrukturPage() {
   }, [items]);
 
   const inputClass =
-    "w-full rounded-lg border border-gold-400/20 bg-perlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400";
+    "w-full rounded-lg border border-gold-400/20 bg-parlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400";
   const labelClass = "mb-2 block text-xs uppercase tracking-[0.2em] text-gold-300";
 
   return (
@@ -147,7 +147,7 @@ export default function AdminStrukturPage() {
         </div>
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 rounded-full bg-gold-400 px-5 py-2.5 text-sm font-bold text-perlemen-950 transition-all hover:bg-gold-300"
+          className="flex items-center gap-2 rounded-full bg-gold-400 px-5 py-2.5 text-sm font-bold text-parlemen-950 transition-all hover:bg-gold-300"
         >
           <Plus size={16} />
           Tambah Anggota
@@ -165,7 +165,7 @@ export default function AdminStrukturPage() {
             className={`rounded-full border px-4 py-1.5 text-xs ${
               peran === "Senator"
                 ? "border-gold-400/30 bg-gold-400/10 text-gold-300"
-                : "border-perlemen-400/30 bg-perlemen-400/10 text-perlemen-300"
+                : "border-parlemen-400/30 bg-parlemen-400/10 text-parlemen-300"
             }`}
           >
             {peran}: {count}
@@ -174,7 +174,7 @@ export default function AdminStrukturPage() {
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="glass mb-10 space-y-5 rounded-xl2 p-6 md:p-8">
+        <form onSubmit={handleSubmit} className="glass mb-10 space-y-5 rounded-[1.75rem] p-6 md:p-8">
           <div className="flex items-center justify-between">
             <h2 className="font-heading text-xl text-white">
               {editing ? "Ubah Anggota" : "Tambah Anggota Baru"}
@@ -255,14 +255,14 @@ export default function AdminStrukturPage() {
             <button
               type="button"
               onClick={() => setShowForm(false)}
-              className="rounded-full border border-perlemen-700 px-6 py-2.5 text-sm text-white/70 transition-colors hover:text-white"
+              className="rounded-full border border-parlemen-700 px-6 py-2.5 text-sm text-white/70 transition-colors hover:text-white"
             >
               Batal
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="flex items-center gap-2 rounded-full bg-gold-400 px-6 py-2.5 text-sm font-bold text-perlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
+              className="flex items-center gap-2 rounded-full bg-gold-400 px-6 py-2.5 text-sm font-bold text-parlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
             >
               {saving && <Loader2 size={15} className="animate-spin" />}
               {saving ? "Menyimpan..." : editing ? "Simpan Perubahan" : "Tambahkan"}
@@ -278,13 +278,13 @@ export default function AdminStrukturPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Cari nama atau peran..."
-            className="w-full rounded-full border border-gold-400/20 bg-perlemen-900 py-2.5 pl-10 pr-4 text-sm text-white outline-none transition-colors focus:border-gold-400"
+            className="w-full rounded-full border border-gold-400/20 bg-parlemen-900 py-2.5 pl-10 pr-4 text-sm text-white outline-none transition-colors focus:border-gold-400"
           />
         </div>
         <select
           value={unitFilter}
           onChange={(e) => setUnitFilter(e.target.value)}
-          className="rounded-full border border-gold-400/20 bg-perlemen-900 px-4 py-2.5 text-sm text-white outline-none transition-colors focus:border-gold-400"
+          className="rounded-full border border-gold-400/20 bg-parlemen-900 px-4 py-2.5 text-sm text-white outline-none transition-colors focus:border-gold-400"
         >
           <option value="Semua">Semua Unit</option>
           {strukturUnits.map((unit) => (
@@ -331,7 +331,7 @@ export default function AdminStrukturPage() {
                       className={`rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-widest ${
                         item.peran === "Senator"
                           ? "border-gold-400/40 bg-gold-400/15 text-gold-300"
-                          : "border-perlemen-400/30 bg-perlemen-400/10 text-perlemen-300"
+                          : "border-parlemen-400/30 bg-parlemen-400/10 text-parlemen-300"
                       }`}
                     >
                       {item.peran}

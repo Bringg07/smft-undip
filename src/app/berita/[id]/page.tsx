@@ -41,10 +41,10 @@ export default async function BeritaDetailPage({
   }
 
   return (
-    <main className="min-h-screen bg-perlemen-950">
+    <main className="min-h-screen bg-parlemen-950">
       <Navbar />
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-gold-glow blur-3xl" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-gold-glow transform-gpu" />
 
         <article className="relative mx-auto max-w-3xl px-6 pb-20 pt-32">
           <Link
@@ -53,7 +53,7 @@ export default async function BeritaDetailPage({
           >
             <ArrowLeft size={16} />
             Kembali ke Berita
-          </Link>            <div className="glass mt-8 rounded-xl2 p-8 md:p-12">
+          </Link>            <div className="glass mt-8 rounded-[1.75rem] p-8 md:p-12">
             {article.image && (
               <div className="mb-8 overflow-hidden rounded-xl border border-gold-400/15">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

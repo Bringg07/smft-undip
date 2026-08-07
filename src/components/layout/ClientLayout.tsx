@@ -11,9 +11,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
-  // Efek loading hanya saat pertama kali buka
+  // Loading singkat hanya saat pertama kali buka, agar tidak membuat pengunjung menunggu
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500); // 1.5 detik loading
+    const timer = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timer);
   }, []);
 

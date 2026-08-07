@@ -76,7 +76,7 @@ export default function Navbar() {
 
         <Link
           href="/#tentang"
-          className="hidden rounded-full border border-gold-400/60 bg-gold-400/10 px-5 py-2 font-body text-sm text-gold-200 transition-all hover:bg-gold-400 hover:text-perlemen-900 lg:inline-block"
+          className="hidden rounded-full border border-gold-400/60 bg-gold-400/10 px-5 py-2 font-body text-sm text-gold-200 transition-all hover:bg-gold-400 hover:text-parlemen-900 lg:inline-block"
         >
           Jelajahi Website
         </Link>

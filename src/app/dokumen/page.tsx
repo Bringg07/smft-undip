@@ -16,10 +16,10 @@ export default async function DokumenPage() {
   const items = await getDokumenList();
 
   return (
-    <main className="min-h-screen bg-perlemen-950">
+    <main className="min-h-screen bg-parlemen-950">
       <Navbar />
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gold-glow blur-3xl animate-pulse-glow" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gold-glow animate-pulse-glow transform-gpu" />
 
         <div className="relative mx-auto max-w-5xl px-6 pb-20 pt-32">
           <div className="mb-14 text-center">
@@ -37,7 +37,7 @@ export default async function DokumenPage() {
 
           {items.length === 0 ? (
             <p className="py-20 text-center font-body text-white/50">
-              Belum ada dokumen. Silakan kembali lagi nanti.
+              Arsip dokumen resmi sedang dilengkapi. Butuh dokumen tertentu? Hubungi sekretariat kami.
             </p>
           ) : (
             <DokumenGrid items={items} />

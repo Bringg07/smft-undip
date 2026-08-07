@@ -21,10 +21,10 @@ export default async function ProgramKerjaPage() {
   const programs = await getProgramKerjaList();
 
   return (
-    <main className="min-h-screen bg-perlemen-950">
+    <main className="min-h-screen bg-parlemen-950">
       <Navbar />
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gold-glow blur-3xl animate-pulse-glow" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gold-glow animate-pulse-glow transform-gpu" />
 
         <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-32">
           <div className="mb-10 text-center">

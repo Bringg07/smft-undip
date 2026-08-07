@@ -41,27 +41,39 @@ export default function Aspirasi() {
     }
   };
 
+  const inputClass =
+    "w-full rounded-xl border border-gold-400/20 bg-parlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400 focus:ring-1 focus:ring-gold-400/40";
+
   return (
-    <section id="aspirasi" className="py-20 bg-perlemen-950 px-6">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-heading text-white">Sampaikan Aspirasi</h2>
-          <p className="text-white/60 mt-2">Suara Anda adalah langkah kami untuk berkarya.</p>
+    <section id="aspirasi" className="bg-parlemen-950 px-6 py-24">
+      <div className="mx-auto max-w-2xl">
+        <div className="text-center">
+          <p className="font-heading text-xs uppercase tracking-[0.4em] text-gold-300">
+            Aspirasi Mahasiswa
+          </p>
+          <h2 className="mt-4 font-heading text-3xl text-white">Sampaikan Aspirasi</h2>
+          <p className="mt-3 font-body text-white/60">Aspirasi Anda kami baca satu per satu dan tindak lanjuti melalui komisi terkait.</p>
         </div>
 
         {status === 'success' ? (
-          <motion.div initial={{opacity:0}} animate={{opacity:1}} className="text-center p-10 bg-gold-400/10 border border-gold-400/20 rounded-2xl">
-            <h3 className="text-gold-400 text-xl font-heading">Terima Kasih!</h3>
-            <p className="text-white/80 mt-2">Aspirasi Anda telah diterima dan akan segera kami tindak lanjuti.</p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="glass mt-10 rounded-[1.75rem] p-10 text-center"
+          >
+            <h3 className="font-heading text-xl text-gold-400">Terima Kasih!</h3>
+            <p className="mt-2 text-white/80">
+              Aspirasi Anda telah diterima dan akan segera kami tindak lanjuti.
+            </p>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="glass mt-10 space-y-6 rounded-[1.75rem] p-8 md:p-10">
             {error && (
               <p className="rounded-lg border border-rose-400/30 bg-rose-400/10 px-4 py-2 text-sm text-rose-300">
                 {error}
               </p>
             )}
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <label htmlFor="aspirasi-nama" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">
                   Nama Lengkap
@@ -72,7 +84,7 @@ export default function Aspirasi() {
                   type="text"
                   placeholder="Nama Lengkap"
                   required
-                  className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none"
+                  className={inputClass}
                 />
               </div>
               <div>
@@ -85,7 +97,7 @@ export default function Aspirasi() {
                   type="text"
                   placeholder="NIM"
                   required
-                  className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none"
+                  className={inputClass}
                 />
               </div>
             </div>
@@ -94,8 +106,8 @@ export default function Aspirasi() {
               <label htmlFor="aspirasi-tujuan" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">
                 Tujuan Aspirasi
               </label>
-              <select id="aspirasi-tujuan" name="tujuan" className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none">
-                <option value="Umum">Tujuan Aspirasi (Komisi/Badan)</option>
+              <select id="aspirasi-tujuan" name="tujuan" className={inputClass}>
+                <option value="Umum">Umum</option>
                 <option value="Komisi 1">Komisi 1</option>
                 <option value="Komisi 2">Komisi 2</option>
                 <option value="Badan Advokasi">Badan Advokasi</option>
@@ -113,14 +125,14 @@ export default function Aspirasi() {
                 placeholder="Tuliskan aspirasi Anda di sini..."
                 rows={4}
                 required
-                className="w-full bg-perlemen-900 border border-gold-400/20 rounded-lg p-3 text-white focus:border-gold-400 outline-none"
+                className={inputClass}
               ></textarea>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={status === 'submitting'}
-              className="w-full bg-gold-400 text-perlemen-950 font-bold py-3 rounded-lg hover:bg-gold-300 transition-all disabled:opacity-50"
+              className="w-full rounded-xl bg-gold-400 py-3 font-bold text-parlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
             >
               {status === 'submitting' ? "Mengirim..." : "Kirim Aspirasi"}
             </button>

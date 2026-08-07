@@ -30,7 +30,7 @@ export default function DokumenGrid({ items }: { items: DokumenItem[] }) {
             onClick={() => setActive(cat)}
             className={`rounded-full border px-5 py-2 font-body text-sm transition-all duration-300 ${
               active === cat
-                ? "border-gold-400 bg-gold-400 text-perlemen-900 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
+                ? "border-gold-400 bg-gold-400 text-parlemen-900 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
                 : "border-gold-400/30 text-gold-300 hover:border-gold-400 hover:bg-gold-400/10"
             }`}
           >
@@ -59,7 +59,7 @@ export default function DokumenGrid({ items }: { items: DokumenItem[] }) {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.04 }}
-                className="glass group flex flex-col rounded-xl2 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-gold-sm"
+                className="glass group flex flex-col rounded-[1.75rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-gold-sm"
               >
                 <div className="flex items-start gap-4">
                   <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-gold-400/30 bg-gold-400/10 text-gold-300 transition-colors group-hover:bg-gold-400/20">
@@ -86,7 +86,7 @@ export default function DokumenGrid({ items }: { items: DokumenItem[] }) {
                 <a
                   href={d.file}
                   download={d.filename ?? "dokumen"}
-                  className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-gold-400 px-5 py-2.5 text-sm font-bold text-perlemen-950 transition-all hover:bg-gold-300"
+                  className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-gold-400 px-5 py-2.5 text-sm font-bold text-parlemen-950 transition-all hover:bg-gold-300"
                 >
                   <FileDown size={15} />
                   Unduh Dokumen

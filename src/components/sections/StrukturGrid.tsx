@@ -20,7 +20,7 @@ const getRoleBadgeClass = (role: string) => {
     case "Senator":
       return "border-gold-400/40 bg-gold-400/15 text-gold-300";
     case "Staff Ahli":
-      return "border-perlemen-400/30 bg-perlemen-400/10 text-perlemen-300";
+      return "border-parlemen-400/30 bg-parlemen-400/10 text-parlemen-300";
     default:
       return "border-gold-400/20 bg-gold-400/10 text-gold-300/95";
   }
@@ -39,7 +39,7 @@ export default function StrukturGrid({ anggota }: { anggota: AnggotaStruktur[] }
             onClick={() => setUnit(key)}
             className={`rounded-full border px-4 py-2 text-sm font-semibold tracking-[0.18em] transition-all duration-300 ${
               unit === key
-                ? "border-gold-400 bg-gold-400 text-perlemen-950 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
+                ? "border-gold-400 bg-gold-400 text-parlemen-950 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
                 : "border-gold-400/20 bg-white/5 text-gold-400 hover:border-gold-400 hover:bg-gold-400/10"
             }`}
           >
@@ -48,11 +48,11 @@ export default function StrukturGrid({ anggota }: { anggota: AnggotaStruktur[] }
         ))}
       </div>
 
-      <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-perlemen-400">
+      <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-parlemen-400">
         <span className="rounded-full border border-gold-400/30 bg-gold-400/10 px-3 py-1 text-gold-300">
           Senator
         </span>
-        <span className="rounded-full border border-perlemen-400/30 bg-perlemen-400/10 px-3 py-1 text-perlemen-300">
+        <span className="rounded-full border border-parlemen-400/30 bg-parlemen-400/10 px-3 py-1 text-parlemen-300">
           Staff Ahli
         </span>
       </div>
@@ -78,13 +78,13 @@ export default function StrukturGrid({ anggota }: { anggota: AnggotaStruktur[] }
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.03, duration: 0.25 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className="group relative overflow-hidden rounded-[1.45rem] border border-gold-400/20 bg-gradient-to-br from-perlemen-900 via-perlemen-900 to-black p-5 shadow-[0_18px_55px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-[0_0_35px_rgba(212,175,55,0.22)]"
+                className="group relative overflow-hidden rounded-[1.45rem] border border-gold-400/20 bg-gradient-to-br from-parlemen-900 via-parlemen-900 to-black p-5 shadow-[0_18px_55px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-[0_0_35px_rgba(212,175,55,0.22)]"
               >
                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500" />
                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold-400/10 blur-3xl" />
                 <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-gold-400/10 to-transparent" />
                 <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-gold-400/30 bg-gradient-to-br from-gold-400/20 to-perlemen-800 text-sm font-bold tracking-[0.2em] text-gold-300">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-gold-400/30 bg-gradient-to-br from-gold-400/20 to-parlemen-800 text-sm font-bold tracking-[0.2em] text-gold-300">
                     {getInitials(person.nama)}
                   </div>
                   <div className="min-w-0 flex-1">
@@ -95,20 +95,15 @@ export default function StrukturGrid({ anggota }: { anggota: AnggotaStruktur[] }
                       >
                         {person.peran}
                       </span>
-                      {person.peran === "Senator" && (
-                        <span className="text-[10px] uppercase tracking-[0.24em] text-gold-400/70">
-                          Leadership
-                        </span>
-                      )}
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between text-[11px] text-perlemen-300">
+                <div className="mt-5 flex items-center justify-between text-[11px] text-parlemen-300">
                   <span className="rounded-full border border-gold-400/20 bg-gold-400/10 px-2.5 py-1 font-medium tracking-[0.18em] text-gold-300/95">
                     {person.unit}
                   </span>
-                  <span className="rounded-full bg-white/5 px-2.5 py-1 text-perlemen-400 transition-colors group-hover:text-gold-300">
+                  <span className="rounded-full bg-white/5 px-2.5 py-1 text-parlemen-400 transition-colors group-hover:text-gold-300">
                     #{i + 1}
                   </span>
                 </div>

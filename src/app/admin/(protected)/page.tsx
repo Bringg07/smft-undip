@@ -81,7 +81,7 @@ export default async function AdminDashboardPage() {
           <Link
             key={stat.href}
             href={stat.href}
-            className={`glass group rounded-xl2 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-gold-sm ${
+            className={`glass group rounded-[1.75rem] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-gold-sm ${
               stat.highlight ? "border-gold-400/50" : "hover:border-gold-400/50"
             }`}
           >
@@ -108,7 +108,7 @@ export default async function AdminDashboardPage() {
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         {/* Aspirasi terbaru */}
-        <section className="glass rounded-xl2 p-6">
+        <section className="glass rounded-[1.75rem] p-6">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="font-heading text-lg text-white">Aspirasi Terbaru</h2>
             <Link
@@ -127,7 +127,7 @@ export default async function AdminDashboardPage() {
               {aspirasiList.slice(0, 5).map((a) => (
                 <li
                   key={a.id}
-                  className="flex items-center justify-between gap-3 rounded-lg border border-white/5 bg-perlemen-900/50 px-4 py-3"
+                  className="flex items-center justify-between gap-3 rounded-lg border border-white/5 bg-parlemen-900/50 px-4 py-3"
                 >
                   <div className="min-w-0">
                     <p className="truncate text-sm font-medium text-white">{a.nama}</p>
@@ -149,7 +149,7 @@ export default async function AdminDashboardPage() {
         </section>
 
         {/* Berita terbaru */}
-        <section className="glass rounded-xl2 p-6">
+        <section className="glass rounded-[1.75rem] p-6">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="font-heading text-lg text-white">Berita Terbaru</h2>
             <Link
@@ -168,7 +168,7 @@ export default async function AdminDashboardPage() {
               {beritaList.slice(0, 5).map((b) => (
                 <li
                   key={b.id}
-                  className="rounded-lg border border-white/5 bg-perlemen-900/50 px-4 py-3"
+                  className="rounded-lg border border-white/5 bg-parlemen-900/50 px-4 py-3"
                 >
                   <p className="truncate text-sm font-medium text-white">{b.title}</p>
                   <p className="mt-1 flex items-center gap-3 text-xs text-white/50">
@@ -185,7 +185,7 @@ export default async function AdminDashboardPage() {
       </div>
 
       {/* Ringkasan program kerja */}
-      <section className="glass mt-6 rounded-xl2 p-6">
+      <section className="glass mt-6 rounded-[1.75rem] p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-heading text-lg text-white">Program Kerja</h2>
           <Link
@@ -224,7 +224,7 @@ export default async function AdminDashboardPage() {
           {programList.slice(0, 4).map((p) => (
             <li
               key={p.id}
-              className="flex items-center justify-between gap-3 rounded-lg border border-white/5 bg-perlemen-900/50 px-4 py-2.5"
+              className="flex items-center justify-between gap-3 rounded-lg border border-white/5 bg-parlemen-900/50 px-4 py-2.5"
             >
               <p className="min-w-0 truncate text-sm text-white/80">{p.title}</p>
               <span

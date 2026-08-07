@@ -16,7 +16,7 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-perlemen-950">
+    <div className="min-h-screen bg-parlemen-950">
       <AdminNav email={session.user?.email ?? null} />
       <main className="mx-auto max-w-5xl px-6 pb-20 pt-8">
         <ToastProvider>{children}</ToastProvider>

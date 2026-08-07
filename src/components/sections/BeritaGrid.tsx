@@ -39,7 +39,7 @@ export default function BeritaGrid({ articles }: { articles: Berita[] }) {
   if (articles.length === 0) {
     return (
       <p className="py-20 text-center font-body text-white/50">
-        Belum ada berita. Silakan kembali lagi nanti.
+        Belum ada berita. Informasi terbaru akan segera tayang di sini.
       </p>
     );
   }
@@ -60,7 +60,7 @@ export default function BeritaGrid({ articles }: { articles: Berita[] }) {
             setPage(1);
           }}
           placeholder="Cari berita..."
-          className="w-full rounded-full border border-gold-400/25 bg-perlemen-900/80 py-3 pl-11 pr-4 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-gold-400"
+          className="w-full rounded-full border border-gold-400/25 bg-parlemen-900/80 py-3 pl-11 pr-4 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-gold-400"
         />
       </div>
 
@@ -78,7 +78,7 @@ export default function BeritaGrid({ articles }: { articles: Berita[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i % 3) * 0.1, duration: 0.5 }}
-                className="glass group flex flex-col rounded-xl2 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-gold-sm"
+                className="glass group flex flex-col rounded-[1.75rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-gold-sm"
               >
                 {article.image ? (
                   <div className="relative -mx-1 overflow-hidden rounded-xl border border-gold-400/15">
@@ -147,7 +147,7 @@ export default function BeritaGrid({ articles }: { articles: Berita[] }) {
                   aria-current={n === currentPage ? "page" : undefined}
                   className={`h-10 w-10 rounded-full text-sm font-semibold transition-all ${
                     n === currentPage
-                      ? "bg-gold-400 text-perlemen-950 shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+                      ? "bg-gold-400 text-parlemen-950 shadow-[0_0_20px_rgba(212,175,55,0.3)]"
                       : "border border-gold-400/30 text-gold-300 hover:bg-gold-400/10"
                   }`}
                 >

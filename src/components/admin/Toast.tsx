@@ -75,7 +75,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 24 }}
                 transition={{ duration: 0.22 }}
-                className={`pointer-events-auto flex items-start gap-3 rounded-xl border ${ring} bg-perlemen-900/95 p-4 shadow-[0_15px_45px_rgba(0,0,0,0.55)] backdrop-blur-md`}
+                className={`pointer-events-auto flex items-start gap-3 rounded-xl border ${ring} bg-parlemen-900/95 p-4 shadow-[0_15px_45px_rgba(0,0,0,0.55)] backdrop-blur-md`}
               >
                 <Icon size={18} className={`mt-0.5 shrink-0 ${iconColor}`} />
                 <p className="font-body text-sm leading-snug text-white/85">{item.message}</p>

@@ -34,7 +34,7 @@ export default function AdminNav({ email }: { email?: string | null }) {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gold-400/20 bg-perlemen-950/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-gold-400/20 bg-parlemen-950/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-4">
         <Link href="/admin" className="flex items-center gap-2">
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold-400/40 bg-gold-400/10">
@@ -62,7 +62,7 @@ export default function AdminNav({ email }: { email?: string | null }) {
                 title={link.label}
                 className={`flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium transition-all ${
                   active
-                    ? "bg-gold-400 text-perlemen-950"
+                    ? "bg-gold-400 text-parlemen-950"
                     : "border border-gold-400/30 text-gold-300 hover:bg-gold-400/10"
                 }`}
               >
@@ -73,7 +73,7 @@ export default function AdminNav({ email }: { email?: string | null }) {
           })}
           <Link
             href="/"
-            className="flex items-center gap-1.5 rounded-full border border-perlemen-700 px-3 py-2 text-xs text-white/60 transition-colors hover:text-white"
+            className="flex items-center gap-1.5 rounded-full border border-parlemen-700 px-3 py-2 text-xs text-white/60 transition-colors hover:text-white"
             title="Lihat website"
           >
             <Home size={14} />

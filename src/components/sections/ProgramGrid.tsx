@@ -34,7 +34,7 @@ export default function ProgramGrid({ programs }: { programs: ProgramKerja[] }) 
             onClick={() => setActiveTab(cat)}
             className={`rounded-full border px-5 py-2 font-body text-sm transition-all duration-300 ${
               activeTab === cat
-                ? "border-gold-400 bg-gold-400 text-perlemen-900 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
+                ? "border-gold-400 bg-gold-400 text-parlemen-900 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
                 : "border-gold-400/30 text-gold-300 hover:border-gold-400 hover:bg-gold-400/10"
             }`}
           >
@@ -64,7 +64,7 @@ export default function ProgramGrid({ programs }: { programs: ProgramKerja[] }) 
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05, duration: 0.3 }}
                 whileHover={{ y: -6 }}
-                className="glass group relative overflow-hidden rounded-xl2 p-7 transition-all duration-300 hover:border-gold-400/50 hover:shadow-gold-sm"
+                className="glass group relative overflow-hidden rounded-[1.75rem] p-7 transition-all duration-300 hover:border-gold-400/50 hover:shadow-gold-sm"
               >
                 <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold-400/10 blur-3xl transition-opacity group-hover:opacity-100" />
 
@@ -87,7 +87,7 @@ export default function ProgramGrid({ programs }: { programs: ProgramKerja[] }) 
                 </p>
 
                 {p.periode && (
-                  <div className="mt-5 flex items-center gap-1.5 border-t border-gold-400/10 pt-4 text-[11px] uppercase tracking-[0.2em] text-perlemen-400">
+                  <div className="mt-5 flex items-center gap-1.5 border-t border-gold-400/10 pt-4 text-[11px] uppercase tracking-[0.2em] text-parlemen-400">
                     <CalendarClock size={13} className="text-gold-400" />
                     {p.periode}
                   </div>

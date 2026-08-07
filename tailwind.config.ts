@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         // Palet warna baru menyesuaikan logo (Hitam & Perak Metalik)
-        perlemen: {
+        parlemen: {
           DEFAULT: "#09090B",
           50: "#FAFAFA",
           100: "#F4F4F5",
@@ -45,16 +45,13 @@ const config: Config = {
       },
       backgroundImage: {
         // Gradient disesuaikan dengan nuansa hitam-perak metalik logo Parlemen
-        "perlemen-gradient": "linear-gradient(180deg, #18181B 0%, #27272A 45%, #09090B 100%)",
+        "parlemen-gradient": "linear-gradient(180deg, #18181B 0%, #27272A 45%, #09090B 100%)",
         "gold-glow": "radial-gradient(circle, rgba(212,175,55,0.35) 0%, rgba(212,175,55,0) 70%)",
       },
       boxShadow: {
         "gold-sm": "0 0 20px rgba(212,175,55,0.25)",
         "gold-lg": "0 0 60px rgba(212,175,55,0.2)",
         glass: "0 8px 32px rgba(0,0,0,0.35)",
-      },
-      borderRadius: {
-        xl2: "1.75rem",
       },
       keyframes: {
         float: {

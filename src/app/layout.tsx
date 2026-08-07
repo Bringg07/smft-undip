@@ -83,7 +83,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${cinzel.variable} ${cormorant.variable} ${inter.variable}`}>
-      <body className="bg-perlemen-950 font-body antialiased" suppressHydrationWarning>
+      <body className="bg-parlemen-950 font-body antialiased" suppressHydrationWarning>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-perlemen-950 px-6">
+    <main className="flex min-h-screen items-center justify-center bg-parlemen-950 px-6">
       <div className="w-full max-w-md">
         <Link
           href="/"
@@ -46,7 +46,7 @@ export default function AdminLoginPage() {
           Kembali ke website
         </Link>
 
-        <div className="glass rounded-xl2 p-8 md:p-10">
+        <div className="glass rounded-[1.75rem] p-8 md:p-10">
           <div className="mb-8 text-center">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-gold-400/40 bg-gold-400/10">
               <Lock size={24} className="text-gold-300" />
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="admin@smftundip.com"
-                className="w-full rounded-lg border border-gold-400/20 bg-perlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400"
+                className="w-full rounded-lg border border-gold-400/20 bg-parlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400"
               />
             </div>
 
@@ -84,7 +84,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full rounded-lg border border-gold-400/20 bg-perlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400"
+                className="w-full rounded-lg border border-gold-400/20 bg-parlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400"
               />
             </div>
 
@@ -97,7 +97,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-400 py-3 font-bold text-perlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-400 py-3 font-bold text-parlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
             >
               {loading && <Loader2 size={18} className="animate-spin" />}
               {loading ? "Memproses..." : "Masuk"}

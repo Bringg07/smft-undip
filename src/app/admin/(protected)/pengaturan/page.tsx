@@ -50,7 +50,7 @@ export default function AdminPengaturanPage() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-gold-400/20 bg-perlemen-900 p-3 pr-11 text-white outline-none transition-colors focus:border-gold-400";
+    "w-full rounded-lg border border-gold-400/20 bg-parlemen-900 p-3 pr-11 text-white outline-none transition-colors focus:border-gold-400";
   const labelClass = "mb-2 block text-xs uppercase tracking-[0.2em] text-gold-300";
 
   return (
@@ -65,7 +65,7 @@ export default function AdminPengaturanPage() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="glass space-y-5 rounded-xl2 p-6 md:p-8">
+      <form onSubmit={handleSubmit} className="glass space-y-5 rounded-[1.75rem] p-6 md:p-8">
         <div className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold-400/40 bg-gold-400/10 text-gold-300">
             <KeyRound size={20} />
@@ -132,7 +132,7 @@ export default function AdminPengaturanPage() {
         <button
           type="submit"
           disabled={saving}
-          className="flex w-full items-center justify-center gap-2 rounded-full bg-gold-400 px-6 py-3 text-sm font-bold text-perlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-gold-400 px-6 py-3 text-sm font-bold text-parlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
         >
           {saving && <Loader2 size={15} className="animate-spin" />}
           {saving ? "Menyimpan..." : "Simpan Password Baru"}

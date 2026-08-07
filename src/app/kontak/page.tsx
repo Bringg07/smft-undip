@@ -31,17 +31,17 @@ const kontak = [
   {
     icon: Phone,
     label: "WhatsApp",
-    value: "+62 800-0000-0000",
-    href: "https://wa.me/6280000000000",
+    value: "+62 838-3443-886",
+    href: "https://wa.me/628383443886",
   },
 ];
 
 export default function KontakPage() {
   return (
-    <main className="min-h-screen bg-perlemen-950">
+    <main className="min-h-screen bg-parlemen-950">
       <Navbar />
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gold-glow blur-3xl animate-pulse-glow" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gold-glow animate-pulse-glow transform-gpu" />
 
         <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-32">
           <div className="mb-14 text-center">
@@ -53,8 +53,8 @@ export default function KontakPage() {
             </h1>
             <div className="divider-gold mx-auto mt-6 w-24" />
             <p className="mx-auto mt-4 max-w-xl font-body text-sm text-white/60 md:text-base">
-              Jangan ragu untuk menyampaikan aspirasi, pertanyaan, atau kerja sama melalui
-              kanal resmi kami.
+              Mampir ke sekretariat kami atau hubungi kanal di bawah — tim kami siap
+              menampung aspirasi, menjawab pertanyaan, maupun membahas kerja sama.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ export default function KontakPage() {
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="glass group flex items-start gap-4 rounded-xl2 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-gold-sm"
+                  className="glass group flex items-start gap-4 rounded-[1.75rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-gold-sm"
                 >
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold-400/40 bg-gold-400/10 text-gold-300 transition-colors group-hover:bg-gold-400/20">
                     <item.icon size={20} />
@@ -82,7 +82,7 @@ export default function KontakPage() {
                 </a>
               ))}
 
-              <div className="glass flex items-start gap-4 rounded-xl2 p-6">
+              <div className="glass flex items-start gap-4 rounded-[1.75rem] p-6">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold-400/40 bg-gold-400/10 text-gold-300">
                   <Clock size={20} />
                 </span>
@@ -97,7 +97,7 @@ export default function KontakPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-xl2 border border-gold-400/20">
+            <div className="overflow-hidden rounded-[1.75rem] border border-gold-400/20">
               <iframe
                 title="Lokasi Fakultas Teknik UNDIP"
                 src="https://www.google.com/maps?q=Fakultas%20Teknik%20Universitas%20Diponegoro%20Tembalang&z=15&output=embed"

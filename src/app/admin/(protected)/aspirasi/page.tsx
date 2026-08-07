@@ -112,7 +112,7 @@ export default function AdminAspirasiPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Cari nama, NIM, atau isi aspirasi..."
-            className="w-full rounded-full border border-gold-400/20 bg-perlemen-900 py-2.5 pl-10 pr-4 text-sm text-white outline-none transition-colors focus:border-gold-400"
+            className="w-full rounded-full border border-gold-400/20 bg-parlemen-900 py-2.5 pl-10 pr-4 text-sm text-white outline-none transition-colors focus:border-gold-400"
           />
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function AdminAspirasiPage() {
                   >
                     {item.status}
                   </span>
-                  <span className="rounded-full border border-perlemen-700 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/50">
+                  <span className="rounded-full border border-parlemen-700 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/50">
                     {item.tujuan}
                   </span>
                   <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">

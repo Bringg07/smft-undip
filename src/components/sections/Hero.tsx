@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -56,22 +56,92 @@ function Particles() {
 }
 
 export default function Hero() {
+  const reduce = useReducedMotion();
+
   return (
     <section
       id="hero"
-      // Tambahkan pt-24 (padding-top) di bawah ini
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-perlemen-gradient noise-overlay pt-24 pb-24"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-parlemen-gradient noise-overlay pt-24 pb-24"
     >
-      {/* ambient glow */}
-      <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-glow blur-3xl animate-pulse-glow" />
+      {/* ambient glow — pakai radial-gradient (ringan) tanpa filter blur yang berat */}
+      <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-glow animate-pulse-glow transform-gpu" />
       <Particles />
 
-      {/* Emblem berputar pelan di latar belakang banner */}
+      {/* Latar belakang: gerigi parlemen yang ditonjolkan dengan animasi */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Emblem utama — roda gigi parlemen berputar sangat lambat */}
-        <div className="absolute h-[420px] w-[420px] opacity-[0.08] animate-[spin_90s_linear_infinite] [mask-image:radial-gradient(circle_at_center,black_35%,transparent_72%)] md:h-[760px] md:w-[760px]">
-          <Image src="/parlemen.png" alt="" fill priority sizes="(min-width: 768px) 760px, 420px" className="object-contain" />
+        {/* Gerigi utama — lebih besar & lebih terlihat, berputar dengan denyut cahaya */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2 }}
+            className="relative h-[480px] w-[480px] md:h-[820px] md:w-[820px] transform-gpu"
+          >
+            {/* Glow emas berdenyut di balik gerigi — radial-gradient ringan, tanpa blur */}
+            <motion.div
+              className="absolute -inset-10 rounded-full bg-gold-glow transform-gpu"
+              animate={reduce ? { opacity: 0.3 } : { opacity: [0.2, 0.55, 0.2] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Gerigi utama berputar perlahan */}
+            <motion.div
+              className="absolute inset-0 transform-gpu"
+              animate={reduce ? {} : { rotate: 360 }}
+              transition={{ duration: 75, repeat: Infinity, ease: "linear" }}
+              style={{
+                WebkitMaskImage: "radial-gradient(circle at center, black 30%, transparent 70%)",
+                maskImage: "radial-gradient(circle at center, black 30%, transparent 70%)",
+              }}
+            >
+              <Image
+                src="/parlemen.png"
+                alt=""
+                fill
+                priority
+                sizes="(min-width: 768px) 820px, 480px"
+                className="object-contain opacity-[0.16]"
+              />
+            </motion.div>
+          </motion.div>
         </div>
+
+        {/* Gerigi sekunder — kanan atas, berputar berlawanan arah */}
+        <motion.div
+          className="absolute -right-20 -top-20 h-64 w-64 md:h-96 md:w-96 transform-gpu"
+          animate={reduce ? {} : { rotate: -360 }}
+          transition={{ duration: 130, repeat: Infinity, ease: "linear" }}
+          style={{
+            WebkitMaskImage: "radial-gradient(circle at center, black 30%, transparent 68%)",
+            maskImage: "radial-gradient(circle at center, black 30%, transparent 68%)",
+          }}
+        >
+          <Image
+            src="/gerigi.png"
+            alt=""
+            fill
+            sizes="(min-width: 768px) 384px, 256px"
+            className="object-contain opacity-[0.12]"
+          />
+        </motion.div>
+
+        {/* Gerigi sekunder — kiri bawah, berputar searah lambat */}
+        <motion.div
+          className="absolute -bottom-24 -left-24 h-72 w-72 md:h-[26rem] md:w-[26rem] transform-gpu"
+          animate={reduce ? {} : { rotate: 360 }}
+          transition={{ duration: 110, repeat: Infinity, ease: "linear" }}
+          style={{
+            WebkitMaskImage: "radial-gradient(circle at center, black 30%, transparent 68%)",
+            maskImage: "radial-gradient(circle at center, black 30%, transparent 68%)",
+          }}
+        >
+          <Image
+            src="/gerigi.png"
+            alt=""
+            fill
+            sizes="(min-width: 768px) 416px, 288px"
+            className="object-contain opacity-[0.12]"
+          />
+        </motion.div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
@@ -138,7 +208,7 @@ export default function Hero() {
         >
           <a
             href="#tentang"
-            className="rounded-full bg-gold-400 px-8 py-3 font-body text-sm font-medium text-perlemen-900 shadow-gold-sm transition-transform hover:scale-105"
+            className="rounded-full bg-gold-400 px-8 py-3 font-body text-sm font-medium text-parlemen-900 shadow-gold-sm transition-transform hover:scale-105"
           >
             Jelajahi Website
           </a>
@@ -152,7 +222,6 @@ export default function Hero() {
       </div>
 
       <motion.div
-        // Mengubah bottom-10 menjadi bottom-6 agar lebih rapi di bagian bawah
         className="absolute bottom-6 z-10 flex flex-col items-center gap-2 text-gold-300/70"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}

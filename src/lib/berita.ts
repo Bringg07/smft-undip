@@ -17,12 +17,12 @@ export const articles: Berita[] = [
     date: "25 Juli 2026",
     category: "Berita Utama",
     excerpt:
-      "Senat Mahasiswa FT UNDIP resmi melantik pengurus periode 2026/2027 dengan semangat baru.",
+      "Kabinet Langkah Karya periode 2026/2027 resmi dilantik di Aula Fakultas Teknik, Sabtu (25/7).",
     author: "Divisi Humas SMFT",
     content: [
-      "Semarang — Senat Mahasiswa Fakultas Teknik Universitas Diponegoro resmi melantik jajaran pengurus baru Kabinet Langkah Karya periode 2026/2027. Pelantikan berlangsung khidmat di Aula Fakultas Teknik dengan dihadiri oleh jajaran dekanat, perwakilan organisasi kemahasiswaan, serta tamu undangan dari 12 Himpunan Mahasiswa Departemen.",
-      "Dalam sambutannya, Ketua Senat terpilih menegaskan komitmen kabinet untuk menjalankan empat fungsi utama parlemen mahasiswa: legislasi, pengawasan, penganggaran, dan advokasi. “Kami hadir untuk menjadi parlemen yang bermakna, melangkah nyata, dan menghasilkan karya yang berdampak bagi seluruh mahasiswa Fakultas Teknik,” ujarnya.",
-      "Setelah prosesi pelantikan, acara dilanjutkan dengan pemaparan program kerja unggulan Kabinet Langkah Karya untuk satu periode ke depan, mencakup penguatan kapasitas anggota, keterbukaan informasi publik, serta penguatan sinergi dengan seluruh ORMAWA di lingkungan Fakultas Teknik.",
+      "Pelantikan pengurus Senat Mahasiswa Fakultas Teknik UNDIP periode 2026/2027 berlangsung di Aula Fakultas Teknik pada Jumat, 25 Juli 2026. Hadir jajaran dekanat, perwakilan BEM FT, lima Unit Pengembangan Keilmuan, dan dua belas Himpunan Mahasiswa Departemen.",
+      "Ketua Senat terpilih membacakan ikrar di hadapan para senator dan tamu undangan. Usai prosesi, rangkaian acara dilanjutkan dengan pemaparan program kerja kabinet — mulai dari penguatan kapasitas anggota, keterbukaan informasi publik, hingga penguatan sinergi dengan seluruh ORMAWA di lingkungan fakultas.",
+      "Foto bersama dan ramah tamah menutup acara. Dokumentasi lengkap dapat dilihat di halaman galeri website SMFT UNDIP.",
     ],
   },
   {
@@ -31,12 +31,12 @@ export const articles: Berita[] = [
     date: "20 Juli 2026",
     category: "Kegiatan",
     excerpt:
-      "Sesi diskusi interaktif antara mahasiswa dan birokrasi fakultas terkait fasilitas kampus.",
+      "Sekitar 60 mahasiswa menyuarakan soal fasilitas lab dan aksesibilitas ruang kuliah dalam dialog terbuka bersama birokrasi fakultas.",
     author: "Badan Advokasi",
     content: [
-      "Badan Advokasi Senat Mahasiswa Fakultas Teknik menyelenggarakan Dialog Terbuka bertajuk “Suara Mahasiswa, Langkah Nyata”. Acara ini menjadi ruang bagi mahasiswa untuk menyampaikan aspirasi secara langsung mengenai fasilitas kampus, layanan akademik, dan kesejahteraan mahasiswa.",
-      "Dialog yang berlangsung selama dua jam tersebut menghasilkan sejumlah rekomendasi yang akan ditindaklanjuti melalui mekanisme pengawasan serta koordinasi dengan pihak fakultas. Beberapa isu yang mengemuka antara lain perbaikan sarana laboratorium, aksesibilitas ruang kuliah, dan transparansi penggunaan dana kemahasiswaan.",
-      "Senat berkomitmen untuk terus membuka kanal aspirasi, baik melalui dialog tatap muka, form aspirasi di website resmi, maupun melalui perwakilan senator di setiap komisi.",
+      "Dialog Terbuka bertajuk \u201cSuara Mahasiswa, Langkah Nyata\u201d berlangsung dua jam di Ruang Serbaguna Gedung Dekanat pada Senin, 20 Juli 2026. Acara dihadiri sekitar 60 mahasiswa dari berbagai departemen.",
+      "Isu yang mengemuka antara lain kondisi sarana laboratorium, aksesibilitas ruang kuliah, dan transparansi penggunaan dana kemahasiswaan. Perwakilan fakultas mencatat seluruh masukan dan berjanji menindaklanjutinya melalui mekanisme yang ada.",
+      "Badan Advokasi akan memantau tindak lanjut tersebut dan melaporkan perkembangannya secara berkala. Aspirasi juga tetap dapat disampaikan lewat form di website ini atau langsung kepada senator di komisi masing-masing.",
     ],
   },
   {
@@ -45,12 +45,12 @@ export const articles: Berita[] = [
     date: "15 Juli 2026",
     category: "Pengumuman",
     excerpt:
-      "Kesempatan bagi mahasiswa teknik untuk bergabung menjadi bagian dari kontributor parlemen.",
+      "Kesempatan bagi mahasiswa Teknik aktif untuk bergabung sebagai staf ahli di lima badan dan empat komisi.",
     author: "Badan Pengembangan Staff",
     content: [
-      "Senat Mahasiswa Fakultas Teknik UNDIP membuka pendaftaran Staf Ahli Gelombang 2 untuk periode 2026/2027. Program ini ditujukan bagi mahasiswa aktif Fakultas Teknik yang ingin berkontribusi dalam kerja-kerja kelembagaan parlemen mahasiswa.",
-      "Staf Ahli akan ditempatkan di berbagai badan dan komisi sesuai minat dan kompetensi, mulai dari Badan Legislasi, Badan Anggaran, Badan Advokasi, Badan BKSAP, hingga keempat komisi. Peserta akan mendapatkan pembekalan, pendampingan, dan kesempatan pengembangan kapasitas selama masa kepengurusan.",
-      "Pendaftaran dibuka mulai 15 hingga 30 Juli 2026 melalui tautan resmi yang dibagikan oleh akun media sosial SMFT UNDIP. Informasi lebih lanjut dapat menghubungi Badan Pengembangan Staff.",
+      "Badan Pengembangan Staff membuka pendaftaran Staf Ahli gelombang kedua untuk periode 2026/2027. Kuota terbatas; pendaftaran berjalan mulai 15 Juli 2026 hingga kuota terpenuhi.",
+      "Staf ahli ditempatkan sesuai minat dan kompetensi — mulai dari Badan Legislasi, Badan Anggaran, Badan Advokasi, Badan BKSAP, hingga keempat komisi. Seluruh peserta mendapat pembekalan dan pendampingan selama masa kepengurusan.",
+      "Tautan pendaftaran dibagikan melalui akun Instagram @smftundip. Pertanyaan lebih lanjut dapat disampaikan langsung ke Badan Pengembangan Staff.",
     ],
   },
   {
@@ -59,12 +59,12 @@ export const articles: Berita[] = [
     date: "8 Juli 2026",
     category: "Legislasi",
     excerpt:
-      "Senat menggelar sosialisasi rancangan peraturan untuk memperkuat tata kelola organisasi kemahasiswaan.",
+      "Badan Legislasi menjaring masukan dari seluruh ORMAWA sebelum rancangan peraturan etika organisasi dibahas di rapat paripurna.",
     author: "Badan Legislasi",
     content: [
-      "Badan Legislasi Senat Mahasiswa Fakultas Teknik menggelar sosialisasi Rancangan Peraturan Senat tentang Etika Organisasi Kemahasiswaan. Kegiatan ini bertujuan menjaring masukan dari seluruh ORMAWA sebelum rancangan peraturan dibahas lebih lanjut dalam rapat paripurna.",
-      "Rancangan peraturan ini disusun sebagai landasan bersama dalam menjaga integritas, profesionalisme, dan tata kelola organisasi yang akuntabel di lingkungan Fakultas Teknik. Seluruh HMD, UPK, dan BEM FT diundang untuk memberikan tanggapan dan masukan.",
-      "Badan Legislasi menargetkan rancangan peraturan ini dapat disahkan pada akhir periode melalui mekanisme pembahasan bertingkat yang transparan dan partisipatif.",
+      "Rancangan Peraturan Senat tentang Etika Organisasi Kemahasiswaan mulai disosialisasikan kepada seluruh ORMAWA di lingkungan Fakultas Teknik pada Rabu, 8 Juli 2026.",
+      "Badan Legislasi membuka sesi masukan secara langsung maupun tertulis selama dua pekan. Usulan yang masuk akan dibahas dalam rapat paripurna sebelum dokumen disahkan.",
+      "Rancangan ini dimaksudkan sebagai landasan bersama dalam menjaga integritas dan profesionalisme tata kelola organisasi. Masukan dari HMD, UPK, dan BEM FT sangat menentukan arah final dokumen tersebut.",
     ],
   },
   {
@@ -73,12 +73,12 @@ export const articles: Berita[] = [
     date: "1 Juli 2026",
     category: "Berita Utama",
     excerpt:
-      "Rapat paripurna perdana menandai dimulainya masa kerja Kabinet Langkah Karya 2026/2027.",
+      "Rapat paripurna perdana menetapkan program kerja tahunan dan mekanisme kerja antar badan serta komisi.",
     author: "Divisi Humas SMFT",
     content: [
-      "Senat Mahasiswa Fakultas Teknik UNDIP menyelenggarakan Rapat Paripurna perdana sebagai penanda dimulainya masa kerja Kabinet Langkah Karya periode 2026/2027. Rapat dihadiri oleh seluruh senator, pimpinan badan, dan ketua komisi.",
-      "Agenda utama rapat meliputi penetapan program kerja tahunan, pembentukan panitia kerja, serta penyesuaian mekanisme kerja antar badan dan komisi. Seluruh agenda dibahas secara demokratis dan menghasilkan keputusan yang mengikat seluruh jajaran.",
-      "Melalui rapat ini, Senat menegaskan komitmennya untuk bekerja secara transparan dan responsif terhadap kebutuhan mahasiswa Fakultas Teknik.",
+      "Rapat Paripurna perdana Kabinet Langkah Karya digelar di Ruang Sidang Senat pada 1 Juli 2026, dihadiri seluruh senator, pimpinan badan, dan ketua komisi.",
+      "Agenda rapat meliputi penetapan program kerja tahunan, pembentukan panitia kerja, dan penyesuaian mekanisme kerja antar badan dan komisi. Seluruh keputusan diambil secara demokratis dan mengikat semua jajaran.",
+      "Rapat berikutnya dijadwalkan setiap awal bulan dan terbuka untuk diikuti para staf ahli.",
     ],
   },
   {
@@ -87,12 +87,12 @@ export const articles: Berita[] = [
     date: "25 Juni 2026",
     category: "Advokasi",
     excerpt:
-      "Badan Advokasi membuka layanan pendampingan bagi mahasiswa yang mengajukan keringanan UKT.",
+      "Badan Advokasi membuka layanan pendampingan bagi mahasiswa yang mengurus keringanan UKT dan fasilitas kampus.",
     author: "Badan Advokasi",
     content: [
-      "Badan Advokasi Senat Mahasiswa Fakultas Teknik membuka layanan pendampingan bagi mahasiswa yang membutuhkan bantuan dalam pengajuan keringanan Uang Kuliah Tunggal (UKT) serta fasilitas kampus.",
-      "Layanan ini hadir sebagai wujud fungsi advokasi senat dalam memperjuangkan kesejahteraan mahasiswa. Tim advokasi akan mendampingi proses administrasi, memberikan konsultasi, serta memastikan hak mahasiswa terpenuhi sesuai ketentuan yang berlaku.",
-      "Mahasiswa yang membutuhkan pendampingan dapat menghubungi Badan Advokasi melalui kanal resmi SMFT UNDIP atau mengisi form aspirasi di website.",
+      "Badan Advokasi Senat Mahasiswa Fakultas Teknik membuka layanan pendampingan pengajuan keringanan Uang Kuliah Tunggal (UKT). Layanan berjalan setiap pekan di sekretariat senat atau melalui janji temu daring.",
+      "Tim advokasi membantu proses administrasi dan memberikan konsultasi, serta memastikan hak mahasiswa terpenuhi sesuai ketentuan yang berlaku.",
+      "Pendaftaran layanan dapat dilakukan melalui form aspirasi di website ini. Seluruh permohonan bersifat rahasia dan ditangani langsung oleh tim advokasi.",
     ],
   },
 ];

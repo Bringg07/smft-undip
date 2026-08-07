@@ -47,7 +47,7 @@ export default function GaleriGrid({ items }: { items: GaleriItem[] }) {
           <button
             key={item.id}
             onClick={() => setIndex(i)}
-            className="group relative block w-full cursor-zoom-in overflow-hidden rounded-xl2 border border-gold-400/15 transition-all duration-300 hover:border-gold-400/50 hover:shadow-gold-sm"
+            className="group relative block w-full cursor-zoom-in overflow-hidden rounded-[1.75rem] border border-gold-400/15 transition-all duration-300 hover:border-gold-400/50 hover:shadow-gold-sm"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

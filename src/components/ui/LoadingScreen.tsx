@@ -18,7 +18,7 @@ export default function LoadingScreen() {
         initial={{ opacity: 0, y: 20, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative flex flex-col items-center rounded-[2rem] border border-gold-400/25 bg-perlemen-900/70 px-8 py-10 shadow-[0_0_60px_rgba(212,175,55,0.16)] backdrop-blur-xl"
+        className="relative flex flex-col items-center rounded-[2rem] border border-gold-400/25 bg-parlemen-900/70 px-8 py-10 shadow-[0_0_60px_rgba(212,175,55,0.16)] backdrop-blur-xl"
       >
         <div className="relative mb-7 flex h-40 w-40 items-center justify-center">
           <motion.div
@@ -82,7 +82,7 @@ export default function LoadingScreen() {
           transition={{ duration: 1.6, repeat: Infinity }}
           className="font-heading text-sm uppercase tracking-[0.35em] text-gold-300"
         >
-          Procedamus Sine Finibus ad Opera
+          Langkah Nyata, Karya Berdampak
         </motion.p>
       </motion.div>
     </motion.div>
