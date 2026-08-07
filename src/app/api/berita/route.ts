@@ -3,6 +3,9 @@ import { revalidatePath } from "next/cache";
 import { prisma, isDatabaseConfigured } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { getBeritaList } from "@/lib/data";
+import { dataUrlByteSize } from "@/lib/utils";
+
+const MAX_UPLOAD_BYTES = 5 * 1024 * 1024; // 5 MB
 
 // GET /api/berita — publik, daftar berita
 export async function GET() {
@@ -26,10 +29,13 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const { title, excerpt, content, category, author, date } = body;
+    const { title, excerpt, content, category, author, date, image } = body;
 
     if (!title || !excerpt || !Array.isArray(content) || content.length === 0) {
       return NextResponse.json({ error: "Data tidak lengkap" }, { status: 400 });
+    }
+    if (image && dataUrlByteSize(image) > MAX_UPLOAD_BYTES) {
+      return NextResponse.json({ error: "Foto terlalu besar (maks 5 MB)" }, { status: 400 });
     }
 
     const berita = await prisma.berita.create({
@@ -37,6 +43,7 @@ export async function POST(request: Request) {
         title,
         excerpt,
         content,
+        image: image || null,
         category: category || "Berita Umum",
         author: author || "Divisi Humas SMFT",
         date: date || new Date().toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" }),

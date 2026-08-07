@@ -90,18 +90,23 @@ npm run db:studio     # buka Prisma Studio (UI untuk lihat/edit data)
   Nilai-Nilai, Filosofi Logo, Footer)
 - Design system Tailwind (warna, tipografi, shadow, animasi)
 - Navbar responsif + mobile menu
+- Halaman Struktur Organisasi, Program Kerja, Berita (index + detail), **Galeri**
+  (masonry + lightbox), **Dokumen** (kategori + unduh), **Kontak** (maps + sosmed)
+- Dashboard admin: CRUD berita & program kerja, **kelola aspirasi** (baca/tandai/hapus),
+  **kelola pengurus** (foto + urutan), **galeri** (upload/hapus), **dokumen** (upload/hapus),
+  **ganti password**, pencarian data, notifikasi toast
+- **Upload file** langsung (gambar dikompresi otomatis di browser, PDF maks 5 MB) —
+  disimpan sebagai data URL di PostgreSQL; untuk skala besar disarankan pindah ke
+  Supabase Storage / Cloudinary
+- **Aspirasi mahasiswa** tersimpan di database dan dikelola dari panel admin
+- Keamanan: rate-limit login (anti brute-force) & anti-spam pada form aspirasi
+- **PWA**: manifest + service worker (bisa di-install & offline dasar)
+- SEO (metadata, OpenGraph, sitemap, robots)
 
-✅ Selesai:
-- Landing page lengkap, halaman Struktur Organisasi, Program Kerja, Berita (index + detail)
-- Dashboard admin + database: Prisma + PostgreSQL (Neon), NextAuth v5, CRUD berita & program kerja
-- SEO (metadata, OpenGraph, sitemap, robots) & PWA manifest
-
-🚧 Belum dikerjakan (bisa dibangun bertahap berikutnya):
-- Halaman **Galeri** (masonry + lightbox)
-- Halaman **Dokumen** (kategori + download PDF)
-- Halaman **Kontak** (maps, sosmed)
-- Integrasi upload file (Supabase Storage / Cloudinary)
+🚧 Ide pengembangan berikutnya:
+- Pindah penyimpanan file ke layanan eksternal (Supabase Storage / Cloudinary)
 - Deployment config untuk Vercel
+- Multi admin (tambah/kelola akun dari dashboard)
 
 ## Catatan font
 

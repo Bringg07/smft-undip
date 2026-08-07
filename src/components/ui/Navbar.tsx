@@ -7,14 +7,15 @@ import Image from "next/image";
 import Link from "next/link"; // Gunakan Link dari next/link
 
 const links = [
-  { label: "Beranda", href: "/#hero" }, // Ditambah /
-  { label: "Tentang", href: "/#tentang" }, // Ditambah /
-  { label: "Visi & Misi", href: "/#visi-misi" }, // Ditambah /
-  { label: "Filosofi", href: "/#filosofi" }, // Ditambah /
+  { label: "Beranda", href: "/#hero" },
+  { label: "Tentang", href: "/#tentang" },
   { label: "Struktur", href: "/struktur-organisasi" },
   { label: "Program Kerja", href: "/program-kerja" },
   { label: "Berita", href: "/berita" },
-  { label: "Aspirasi", href: "/#aspirasi" }, // Ditambah /
+  { label: "Galeri", href: "/galeri" },
+  { label: "Dokumen", href: "/dokumen" },
+  { label: "Kontak", href: "/kontak" },
+  { label: "Aspirasi", href: "/#aspirasi" },
 ];
 
 export default function Navbar() {
@@ -59,12 +60,12 @@ export default function Navbar() {
         </Link>
 
         {/* Menu Navigasi Desktop */}
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-4 lg:flex xl:gap-5">
           {links.map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="group relative font-body text-sm text-white/70 transition-colors hover:text-gold-300"
+                className="group relative font-body text-[13px] text-white/70 transition-colors hover:text-gold-300 xl:text-sm"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold-400 transition-all duration-300 group-hover:w-full" />

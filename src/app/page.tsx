@@ -10,6 +10,7 @@ import LogoPhilosophy from "@/components/sections/LogoPhilosophy";
 import LeadershipPreview from "@/components/sections/LeadershipPreview";
 import Aspirasi from "@/components/sections/Aspirasi";
 import Footer from "@/components/sections/Footer";
+import { getPengurusList } from "@/lib/data";
 
 // Catatan: openGraph, twitter, dan images diwarisi dari layout.tsx agar
 // tidak ada field yang tertimpa (metadata Next.js di-merge secara shallow).
@@ -23,7 +24,9 @@ export const metadata: Metadata = {
 
 // Catatan: setiap section sudah memiliki animasi whileInView sendiri,
 // sehingga tidak perlu dibungkus animasi tambahan di level halaman.
-export default function Home() {
+export default async function Home() {
+  const pengurus = await getPengurusList();
+
   return (
     <main className="relative">
       <Navbar />
@@ -34,7 +37,7 @@ export default function Home() {
       <CabinetPhilosophy />
       <Values />
       <LogoPhilosophy />
-      <LeadershipPreview />
+      <LeadershipPreview pengurus={pengurus} />
       <Aspirasi />
       <Footer />
     </main>

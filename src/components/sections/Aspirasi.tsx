@@ -5,32 +5,38 @@ import { motion } from "framer-motion";
 
 export default function Aspirasi() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
+    setError(null);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xrenvzwy", {
+      const response = await fetch("/api/aspirasi", {
         method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nama: formData.get("nama"),
+          nim: formData.get("nim"),
+          tujuan: formData.get("tujuan"),
+          pesan: formData.get("pesan"),
+        }),
       });
 
       if (response.ok) {
         setStatus('success');
-        form.reset(); // Reset input setelah sukses
+        form.reset();
       } else {
-        alert("Gagal mengirim pesan. Coba lagi nanti.");
+        const data = await response.json().catch(() => ({}));
+        setError(data.error || "Gagal mengirim pesan. Coba lagi nanti.");
         setStatus('idle');
       }
     } catch {
-      alert("Terjadi kesalahan koneksi.");
+      setError("Terjadi kesalahan koneksi.");
       setStatus('idle');
     }
   };
@@ -50,6 +56,11 @@ export default function Aspirasi() {
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            {error && (
+              <p className="rounded-lg border border-rose-400/30 bg-rose-400/10 px-4 py-2 text-sm text-rose-300">
+                {error}
+              </p>
+            )}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="aspirasi-nama" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">

@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { Newspaper, ClipboardList, ArrowRight } from "lucide-react";
-import { getBeritaList, getProgramKerjaList } from "@/lib/data";
+import { Newspaper, ClipboardList, MessageSquareText, Users, ArrowRight } from "lucide-react";
+import { getBeritaList, getProgramKerjaList, getAspirasiList, getPengurusList } from "@/lib/data";
 
 export default async function AdminDashboardPage() {
-  const [beritaList, programList] = await Promise.all([
+  const [beritaList, programList, aspirasiList, pengurusList] = await Promise.all([
     getBeritaList(),
     getProgramKerjaList(),
+    getAspirasiList(),
+    getPengurusList(),
   ]);
 
   const stats = [
@@ -20,6 +22,18 @@ export default async function AdminDashboardPage() {
       value: programList.length,
       href: "/admin/program-kerja",
       icon: ClipboardList,
+    },
+    {
+      label: "Aspirasi Masuk",
+      value: aspirasiList.filter((a) => a.status === "Baru").length,
+      href: "/admin/aspirasi",
+      icon: MessageSquareText,
+    },
+    {
+      label: "Total Pengurus",
+      value: pengurusList.length,
+      href: "/admin/pengurus",
+      icon: Users,
     },
   ];
 
@@ -36,7 +50,7 @@ export default async function AdminDashboardPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
           <Link
             key={stat.href}

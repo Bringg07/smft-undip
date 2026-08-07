@@ -32,8 +32,54 @@ model Berita {
   category  String
   author    String
   date      String // tanggal tampil, mis. "25 Juli 2026"
+  image     String? // foto sampul (data URL) — opsional
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// Aspirasi mahasiswa (dikirim dari form publik)
+model Aspirasi {
+  id        Int            @id @default(autoincrement())
+  nama      String
+  nim       String
+  tujuan    String
+  pesan     String
+  status    AspirasiStatus @default(Baru)
+  createdAt DateTime       @default(now())
+}
+
+enum AspirasiStatus {
+  Baru
+  Ditindaklanjuti
+}
+
+// Pengurus (untuk kartu pimpinan di beranda)
+model Pengurus {
+  id       Int     @id @default(autoincrement())
+  nama     String
+  jabatan  String
+  kategori String // Pimpinan | Sekretariat | Bendahara | Badan | Komisi
+  urutan   Int     @default(0)
+  foto     String? // data URL foto — opsional
+}
+
+// Galeri foto kegiatan
+model Galeri {
+  id        Int      @id @default(autoincrement())
+  judul     String
+  gambar    String // data URL
+  createdAt DateTime @default(now())
+}
+
+// Dokumen resmi (PDF dsb., disimpan sebagai data URL)
+model Dokumen {
+  id        Int      @id @default(autoincrement())
+  judul     String
+  kategori  String
+  deskripsi String?
+  filename  String?
+  file      String // data URL file
+  createdAt DateTime @default(now())
 }
 
 // Program kerja

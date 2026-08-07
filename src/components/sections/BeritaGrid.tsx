@@ -33,19 +33,34 @@ export default function BeritaGrid({ articles }: { articles: Berita[] }) {
           transition={{ delay: (i % 3) * 0.1, duration: 0.5 }}
           className="glass group flex flex-col rounded-xl2 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-gold-sm"
         >
-          <div className="flex items-center justify-between">
-            <span
-              className={`rounded-full border px-3 py-1 text-[10px] uppercase tracking-widest ${
-                categoryStyles[article.category] ?? categoryStyles["Berita Utama"]
-              }`}
-            >
-              {article.category}
-            </span>
-            <span className="flex items-center gap-1.5 text-xs text-white/40">
-              <CalendarDays size={13} />
-              {article.date}
-            </span>
-          </div>
+          {article.image ? (
+            <div className="relative -mx-1 overflow-hidden rounded-xl border border-gold-400/15">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={article.image}
+                alt={article.title}
+                className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span className="absolute left-3 top-3 rounded-full border border-gold-400/40 bg-gold-400/15 px-3 py-1 text-[10px] uppercase tracking-widest text-gold-300 backdrop-blur-md">
+                {article.category}
+              </span>
+            </div>
+          ) : (
+            <div className="flex items-center justify-between">
+              <span
+                className={`rounded-full border px-3 py-1 text-[10px] uppercase tracking-widest ${
+                  categoryStyles[article.category] ?? categoryStyles["Berita Utama"]
+                }`}
+              >
+                {article.category}
+              </span>
+              <span className="flex items-center gap-1.5 text-xs text-white/40">
+                <CalendarDays size={13} />
+                {article.date}
+              </span>
+            </div>
+          )}
 
           <h2 className="mt-4 flex-grow font-heading text-xl leading-snug text-white transition-colors group-hover:text-gold-300">
             <Link href={`/berita/${article.id}`}>{article.title}</Link>

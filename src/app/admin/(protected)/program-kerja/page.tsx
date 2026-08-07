@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Plus, Pencil, Trash2, X, Loader2 } from "lucide-react";
+import { Plus, Pencil, Trash2, X, Loader2, Search } from "lucide-react";
 import { programCategories } from "@/lib/program-kerja";
+import { useToast } from "@/components/admin/Toast";
 
 interface ProgramItem {
   id: number;
@@ -40,6 +41,7 @@ const statusColor: Record<string, string> = {
 
 export default function AdminProgramKerjaPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const [items, setItems] = useState<ProgramItem[]>([]);
 
   // Opsi kategori = daftar standar + kategori yang sudah ada di database
@@ -55,6 +57,7 @@ export default function AdminProgramKerjaPage() {
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -125,6 +128,7 @@ export default function AdminProgramKerjaPage() {
       setEditing(null);
       await load();
       router.refresh();
+      toast.success(editing ? "Program kerja diperbarui." : "Program kerja ditambahkan.");
     } catch {
       setError("Terjadi kesalahan koneksi.");
     } finally {
@@ -139,10 +143,17 @@ export default function AdminProgramKerjaPage() {
     if (res.ok) {
       await load();
       router.refresh();
+      toast.success("Program kerja berhasil dihapus.");
     } else {
-      alert("Gagal menghapus program kerja.");
+      toast.error("Gagal menghapus program kerja.");
     }
   };
+
+  const filtered = items.filter(
+    (item) =>
+      item.title.toLowerCase().includes(search.toLowerCase()) ||
+      item.category.toLowerCase().includes(search.toLowerCase())
+  );
 
   const inputClass =
     "w-full rounded-lg border border-gold-400/20 bg-perlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400";
@@ -275,15 +286,28 @@ export default function AdminProgramKerjaPage() {
         </form>
       )}
 
+      <div className="mb-6 flex flex-wrap items-center gap-3">
+        <div className="relative flex-1">
+          <Search size={15} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40" />
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Cari nama program atau unit..."
+            className="w-full rounded-full border border-gold-400/20 bg-perlemen-900 py-2.5 pl-10 pr-4 text-sm text-white outline-none transition-colors focus:border-gold-400"
+          />
+        </div>
+        <span className="font-body text-xs text-white/40">{filtered.length} program</span>
+      </div>
+
       {loading ? (
         <p className="py-16 text-center text-white/40">Memuat program kerja...</p>
-      ) : items.length === 0 ? (
+      ) : filtered.length === 0 ? (
         <p className="py-16 text-center text-white/40">
-          Belum ada program kerja. Klik tombol “Tambah Program” di atas untuk membuat yang pertama.
+          {search ? "Tidak ada program yang cocok dengan pencarian." : "Belum ada program kerja. Klik tombol “Tambah Program” di atas untuk membuat yang pertama."}
         </p>
       ) : (
         <ul className="space-y-4">
-          {items.map((item) => (
+          {filtered.map((item) => (
             <li
               key={item.id}
               className="glass flex flex-wrap items-center justify-between gap-4 rounded-xl p-5"

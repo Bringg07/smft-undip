@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Plus, Pencil, Trash2, X, Loader2 } from "lucide-react";
+import { Plus, Pencil, Trash2, X, Loader2, Search, Upload, ImageOff } from "lucide-react";
+import { fileToStoredDataUrl } from "@/lib/image";
+import { useToast } from "@/components/admin/Toast";
 
 interface BeritaItem {
   id: number;
@@ -12,6 +14,7 @@ interface BeritaItem {
   category: string;
   author: string;
   date: string;
+  image?: string | null;
 }
 
 const emptyForm = {
@@ -21,17 +24,21 @@ const emptyForm = {
   date: "",
   excerpt: "",
   content: "",
+  image: "",
 };
 
 export default function AdminBeritaPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const [items, setItems] = useState<BeritaItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState<BeritaItem | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -66,9 +73,26 @@ export default function AdminBeritaPage() {
       date: item.date,
       excerpt: item.excerpt,
       content: item.content.join("\n\n"),
+      image: item.image ?? "",
     });
     setShowForm(true);
     setError(null);
+  };
+
+  const handleImageFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const dataUrl = await fileToStoredDataUrl(file);
+      setForm((f) => ({ ...f, image: dataUrl }));
+      toast.success("Foto sampul berhasil diproses.");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Gagal memuat foto.");
+    } finally {
+      e.target.value = "";
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -86,6 +110,7 @@ export default function AdminBeritaPage() {
         .split(/\n\s*\n/)
         .map((p) => p.trim())
         .filter(Boolean),
+      image: form.image || undefined,
     };
 
     if (payload.content.length === 0) {
@@ -112,6 +137,7 @@ export default function AdminBeritaPage() {
       setEditing(null);
       await load();
       router.refresh();
+      toast.success(editing ? "Berita berhasil diperbarui." : "Berita berhasil diterbitkan.");
     } catch {
       setError("Terjadi kesalahan koneksi.");
     } finally {
@@ -126,10 +152,17 @@ export default function AdminBeritaPage() {
     if (res.ok) {
       await load();
       router.refresh();
+      toast.success("Berita berhasil dihapus.");
     } else {
-      alert("Gagal menghapus berita.");
+      toast.error("Gagal menghapus berita.");
     }
   };
+
+  const filtered = items.filter(
+    (item) =>
+      item.title.toLowerCase().includes(search.toLowerCase()) ||
+      item.category.toLowerCase().includes(search.toLowerCase())
+  );
 
   const inputClass =
     "w-full rounded-lg border border-gold-400/20 bg-perlemen-900 p-3 text-white outline-none transition-colors focus:border-gold-400";
@@ -172,15 +205,49 @@ export default function AdminBeritaPage() {
             </button>
           </div>
 
-          <div>
-            <label htmlFor="b-title" className={labelClass}>Judul</label>
-            <input
-              id="b-title"
-              className={inputClass}
-              value={form.title}
-              onChange={(e) => setForm({ ...form, title: e.target.value })}
-              required
-            />
+          <div className="grid gap-5 md:grid-cols-2">
+            <div>
+              <label htmlFor="b-title" className={labelClass}>Judul</label>
+              <input
+                id="b-title"
+                className={inputClass}
+                value={form.title}
+                onChange={(e) => setForm({ ...form, title: e.target.value })}
+                required
+              />
+            </div>
+            <div>
+              <label className={labelClass}>Foto Sampul (opsional)</label>
+              <label
+                className={`flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-gold-400/30 bg-perlemen-900 px-3 py-2.5 text-sm text-white/60 transition-colors hover:border-gold-400 hover:text-gold-300 ${
+                  uploading ? "opacity-60" : ""
+                }`}
+              >
+                <Upload size={15} />
+                {uploading ? "Memproses..." : form.image ? "Ganti foto" : "Pilih foto"}
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageFile}
+                  disabled={uploading}
+                />
+              </label>
+              {form.image && (
+                <div className="relative mt-3 overflow-hidden rounded-lg border border-gold-400/20">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={form.image} alt="Pratinjau sampul" className="h-32 w-full object-cover" />
+                  <button
+                    type="button"
+                    onClick={() => setForm((f) => ({ ...f, image: "" }))}
+                    className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-rose-500/90 text-white transition-colors hover:bg-rose-500"
+                    title="Hapus foto"
+                  >
+                    <X size={14} />
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="grid gap-5 md:grid-cols-3">
@@ -266,7 +333,7 @@ export default function AdminBeritaPage() {
             </button>
             <button
               type="submit"
-              disabled={saving}
+              disabled={saving || uploading}
               className="flex items-center gap-2 rounded-full bg-gold-400 px-6 py-2.5 text-sm font-bold text-perlemen-950 transition-all hover:bg-gold-300 disabled:opacity-50"
             >
               {saving && <Loader2 size={15} className="animate-spin" />}
@@ -276,30 +343,57 @@ export default function AdminBeritaPage() {
         </form>
       )}
 
+      <div className="mb-6 flex flex-wrap items-center gap-3">
+        <div className="relative flex-1">
+          <Search size={15} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40" />
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Cari judul atau kategori..."
+            className="w-full rounded-full border border-gold-400/20 bg-perlemen-900 py-2.5 pl-10 pr-4 text-sm text-white outline-none transition-colors focus:border-gold-400"
+          />
+        </div>
+        <span className="font-body text-xs text-white/40">{filtered.length} berita</span>
+      </div>
+
       {loading ? (
         <p className="py-16 text-center text-white/40">Memuat berita...</p>
-      ) : items.length === 0 ? (
+      ) : filtered.length === 0 ? (
         <p className="py-16 text-center text-white/40">
-          Belum ada berita. Klik tombol “Tambah Berita” di atas untuk membuat yang pertama.
+          {search ? "Tidak ada berita yang cocok dengan pencarian." : "Belum ada berita. Klik tombol “Tambah Berita” di atas untuk membuat yang pertama."}
         </p>
       ) : (
         <ul className="space-y-4">
-          {items.map((item) => (
+          {filtered.map((item) => (
             <li
               key={item.id}
               className="glass flex flex-wrap items-center justify-between gap-4 rounded-xl p-5"
             >
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-3">
-                  <span className="rounded-full border border-gold-400/30 bg-gold-400/10 px-2.5 py-0.5 text-[10px] uppercase tracking-widest text-gold-300">
-                    {item.category}
+              <div className="flex min-w-0 flex-1 items-center gap-4">
+                {item.image ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="h-16 w-20 shrink-0 rounded-lg border border-gold-400/20 object-cover"
+                  />
+                ) : (
+                  <span className="flex h-16 w-20 shrink-0 items-center justify-center rounded-lg border border-gold-400/20 bg-perlemen-900 text-white/30">
+                    <ImageOff size={18} />
                   </span>
-                  <span className="text-[10px] uppercase tracking-widest text-white/40">
-                    {item.date}
-                  </span>
+                )}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-3">
+                    <span className="rounded-full border border-gold-400/30 bg-gold-400/10 px-2.5 py-0.5 text-[10px] uppercase tracking-widest text-gold-300">
+                      {item.category}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-widest text-white/40">
+                      {item.date}
+                    </span>
+                  </div>
+                  <h3 className="mt-2 truncate font-heading text-lg text-white">{item.title}</h3>
+                  <p className="mt-1 line-clamp-1 text-sm text-white/50">{item.excerpt}</p>
                 </div>
-                <h3 className="mt-2 truncate font-heading text-lg text-white">{item.title}</h3>
-                <p className="mt-1 line-clamp-1 text-sm text-white/50">{item.excerpt}</p>
               </div>
               <div className="flex shrink-0 gap-2">
                 <button

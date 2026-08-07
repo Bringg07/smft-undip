@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { articles } from "../src/lib/berita";
 import { programs } from "../src/lib/program-kerja";
+import { pengurusList } from "../src/lib/pengurus";
 
 const prisma = new PrismaClient();
 
@@ -23,7 +24,7 @@ async function main() {
       role: "admin",
     },
   });
-  console.log(`✓ Akun admin: ${email} (password: ${password})`);
+  console.log(`✓ Akun admin: ${email}`);
 
   // 2. Data awal berita (hanya bila tabel kosong)
   if ((await prisma.berita.count()) === 0) {
@@ -35,6 +36,7 @@ async function main() {
         category: a.category,
         author: a.author,
         date: a.date,
+        image: a.image ?? null,
       })),
     });
     console.log(`✓ ${articles.length} berita awal di-seed`);
@@ -52,6 +54,20 @@ async function main() {
       })),
     });
     console.log(`✓ ${programs.length} program kerja awal di-seed`);
+  }
+
+  // 4. Data awal pengurus (hanya bila tabel kosong)
+  if ((await prisma.pengurus.count()) === 0) {
+    await prisma.pengurus.createMany({
+      data: pengurusList.map((p) => ({
+        nama: p.nama,
+        jabatan: p.jabatan,
+        kategori: p.kategori,
+        urutan: p.urutan,
+        foto: null,
+      })),
+    });
+    console.log(`✓ ${pengurusList.length} pengurus awal di-seed`);
   }
 }
 

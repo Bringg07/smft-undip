@@ -17,6 +17,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     return () => clearTimeout(timer);
   }, []);
 
+  // Registrasi Service Worker (PWA) — hanya di produksi agar tidak mengganggu development
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").catch(() => {});
+    }
+  }, []);
+
   return (
     <>
       <AnimatePresence mode="wait">

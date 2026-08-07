@@ -52,9 +52,17 @@ export default async function BeritaDetailPage({
           >
             <ArrowLeft size={16} />
             Kembali ke Berita
-          </Link>
-
-          <div className="glass mt-8 rounded-xl2 p-8 md:p-12">
+          </Link>            <div className="glass mt-8 rounded-xl2 p-8 md:p-12">
+            {article.image && (
+              <div className="mb-8 overflow-hidden rounded-xl border border-gold-400/15">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="max-h-[420px] w-full object-cover"
+                />
+              </div>
+            )}
             <div className="flex flex-wrap items-center gap-4 text-xs">
               <span className="rounded-full border border-gold-400/40 bg-gold-400/15 px-3 py-1 uppercase tracking-widest text-gold-300">
                 {article.category}

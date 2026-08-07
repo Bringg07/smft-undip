@@ -3,12 +3,29 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { LayoutDashboard, Newspaper, ClipboardList, LogOut, Home, ShieldCheck } from "lucide-react";
+import {
+  LayoutDashboard,
+  Newspaper,
+  ClipboardList,
+  MessageSquareText,
+  Users,
+  Images,
+  FileText,
+  KeyRound,
+  LogOut,
+  Home,
+  ShieldCheck,
+} from "lucide-react";
 
 const links = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/berita", label: "Kelola Berita", icon: Newspaper },
-  { href: "/admin/program-kerja", label: "Kelola Program", icon: ClipboardList },
+  { href: "/admin/berita", label: "Berita", icon: Newspaper },
+  { href: "/admin/program-kerja", label: "Program", icon: ClipboardList },
+  { href: "/admin/aspirasi", label: "Aspirasi", icon: MessageSquareText },
+  { href: "/admin/pengurus", label: "Pengurus", icon: Users },
+  { href: "/admin/galeri", label: "Galeri", icon: Images },
+  { href: "/admin/dokumen", label: "Dokumen", icon: FileText },
+  { href: "/admin/pengaturan", label: "Pengaturan", icon: KeyRound },
 ];
 
 export default function AdminNav({ email }: { email?: string | null }) {
@@ -31,7 +48,7 @@ export default function AdminNav({ email }: { email?: string | null }) {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-2">
+        <nav className="flex flex-wrap items-center gap-2">
           {links.map((link) => {
             const active =
               pathname === link.href ||
@@ -40,7 +57,8 @@ export default function AdminNav({ email }: { email?: string | null }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-medium transition-all ${
+                title={link.label}
+                className={`flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium transition-all ${
                   active
                     ? "bg-gold-400 text-perlemen-950"
                     : "border border-gold-400/30 text-gold-300 hover:bg-gold-400/10"
@@ -53,7 +71,7 @@ export default function AdminNav({ email }: { email?: string | null }) {
           })}
           <Link
             href="/"
-            className="flex items-center gap-1.5 rounded-full border border-perlemen-700 px-4 py-2 text-xs text-white/60 transition-colors hover:text-white"
+            className="flex items-center gap-1.5 rounded-full border border-perlemen-700 px-3 py-2 text-xs text-white/60 transition-colors hover:text-white"
             title="Lihat website"
           >
             <Home size={14} />
@@ -61,7 +79,8 @@ export default function AdminNav({ email }: { email?: string | null }) {
           </Link>
           <button
             onClick={() => signOut({ callbackUrl: "/admin/login" })}
-            className="flex items-center gap-1.5 rounded-full border border-rose-400/40 px-4 py-2 text-xs text-rose-300 transition-colors hover:bg-rose-400/10"
+            className="flex items-center gap-1.5 rounded-full border border-rose-400/40 px-3 py-2 text-xs text-rose-300 transition-colors hover:bg-rose-400/10"
+            title="Keluar"
           >
             <LogOut size={14} />
             <span className="hidden sm:inline">Keluar</span>

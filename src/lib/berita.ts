@@ -6,6 +6,7 @@ export interface Berita {
   excerpt: string;
   author: string;
   content: string[];
+  image?: string | null;
 }
 
 // Data berita SMFT UNDIP — silakan perbarui konten di sini sesuai rilis resmi.
