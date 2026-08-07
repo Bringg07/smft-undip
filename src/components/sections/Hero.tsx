@@ -66,6 +66,14 @@ export default function Hero() {
       <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-glow blur-3xl animate-pulse-glow" />
       <Particles />
 
+      {/* Emblem berputar pelan di latar belakang banner */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Emblem utama — roda gigi parlemen berputar sangat lambat */}
+        <div className="absolute h-[420px] w-[420px] opacity-[0.08] animate-[spin_90s_linear_infinite] [mask-image:radial-gradient(circle_at_center,black_35%,transparent_72%)] md:h-[760px] md:w-[760px]">
+          <Image src="/parlemen.png" alt="" fill priority sizes="(min-width: 768px) 760px, 420px" className="object-contain" />
+        </div>
+      </div>
+
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         
         {/* Logo Section di Hero */}
@@ -80,14 +88,14 @@ export default function Hero() {
             alt="Logo Senat"
             width={110}
             height={110}
-            className="object-contain" 
+            className="object-contain"
           />
           <Image
             src="/parlemen.png"
             alt="Logo Kabinet"
             width={110}
             height={110}
-            className="object-contain" 
+            className="object-contain"
           />
         </motion.div>
 
