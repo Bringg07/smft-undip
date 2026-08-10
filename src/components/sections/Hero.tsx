@@ -207,10 +207,10 @@ export default function Hero() {
           className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
           <a
-            href="#tentang"
+            href="#aspirasi"
             className="rounded-full bg-gold-400 px-8 py-3 font-body text-sm font-medium text-parlemen-900 shadow-gold-sm transition-transform hover:scale-105"
           >
-            Jelajahi Website
+            Sampaikan Aspirasi
           </a>
           <a
             href="/program-kerja"

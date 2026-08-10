@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { strukturUnits } from "@/lib/struktur";
 
 export default function Aspirasi() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -106,11 +107,13 @@ export default function Aspirasi() {
               <label htmlFor="aspirasi-tujuan" className="mb-2 block font-body text-xs uppercase tracking-[0.2em] text-gold-300">
                 Tujuan Aspirasi
               </label>
-              <select id="aspirasi-tujuan" name="tujuan" className={inputClass}>
+              <select id="aspirasi-tujuan" name="tujuan" className={inputClass} defaultValue="Umum">
                 <option value="Umum">Umum</option>
-                <option value="Komisi 1">Komisi 1</option>
-                <option value="Komisi 2">Komisi 2</option>
-                <option value="Badan Advokasi">Badan Advokasi</option>
+                {strukturUnits.map((unit) => (
+                  <option key={unit} value={unit}>
+                    {unit}
+                  </option>
+                ))}
                 <option value="Lainnya">Lainnya</option>
               </select>
             </div>

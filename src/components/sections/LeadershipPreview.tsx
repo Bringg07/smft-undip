@@ -13,14 +13,6 @@ const getInitials = (name: string) => {
     .toUpperCase();
 };
 
-const kategoriBadge: Record<string, string> = {
-  Pimpinan: "border-gold-400/40 bg-gold-400/15 text-gold-300",
-  Sekretariat: "border-sky-400/30 bg-sky-400/10 text-sky-300",
-  Bendahara: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
-  Badan: "border-violet-400/30 bg-violet-400/10 text-violet-300",
-  Komisi: "border-rose-400/30 bg-rose-400/10 text-rose-300",
-};
-
 export default function LeadershipPreview({ pengurus }: { pengurus: Pengurus[] }) {
   return (
     <section className="bg-parlemen-950 py-20 text-white">
@@ -79,11 +71,6 @@ export default function LeadershipPreview({ pengurus }: { pengurus: Pengurus[] }
                 <div className="mt-6 text-center">
                   <p className="font-heading text-lg font-semibold text-white">{leader.nama}</p>
                   <p className="mt-2 font-body text-sm text-parlemen-300">{leader.jabatan}</p>
-                </div>
-                <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[11px] uppercase tracking-[0.3em]">
-                  <span className={`rounded-full border px-2.5 py-1 ${kategoriBadge[leader.kategori] ?? kategoriBadge.Pimpinan}`}>
-                    {leader.kategori}
-                  </span>
                 </div>
               </motion.div>
             ))}

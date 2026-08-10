@@ -308,9 +308,6 @@ export default function AdminPengurusPage() {
                   <p className="truncate font-heading text-base text-white">{item.nama}</p>
                   <p className="text-xs text-white/50">{item.jabatan}</p>
                   <div className="mt-1.5 flex items-center gap-2">
-                    <span className="rounded-full border border-gold-400/30 bg-gold-400/10 px-2.5 py-0.5 text-[10px] uppercase tracking-widest text-gold-300">
-                      {item.kategori}
-                    </span>
                     <span className="text-[10px] uppercase tracking-widest text-white/40">
                       Urutan #{item.urutan}
                     </span>

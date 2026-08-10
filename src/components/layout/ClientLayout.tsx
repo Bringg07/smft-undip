@@ -11,9 +11,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
-  // Loading singkat hanya saat pertama kali buka, agar tidak membuat pengunjung menunggu
+  // Durasi loading screen. Dinaikkan ke 2500ms agar detail animasi terlihat,
+  // tapi tidak bikin pengunjung menunggu terlalu lama.
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 400);
+    const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
