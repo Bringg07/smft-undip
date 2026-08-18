@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone, Instagram, Clock } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, Music2, Clock } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/sections/Footer";
 
@@ -19,14 +19,20 @@ const kontak = [
   {
     icon: Mail,
     label: "Email",
-    value: "smft@undip.ac.id",
-    href: "mailto:smft@undip.ac.id",
+    value: "smfakultasteknik@gmail.com",
+    href: "mailto:smfakultasteknik@gmail.com",
   },
   {
     icon: Instagram,
     label: "Instagram",
     value: "@smftundip",
     href: "https://www.instagram.com/smftundip/",
+  },
+  {
+    icon: Music2,
+    label: "TikTok",
+    value: "@senat.ft.undip",
+    href: "https://www.tiktok.com/@senat.ft.undip",
   },
   {
     icon: Phone,

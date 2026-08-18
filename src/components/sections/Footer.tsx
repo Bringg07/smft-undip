@@ -1,4 +1,4 @@
-import { Instagram, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone, ArrowUpRight, Music2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -77,13 +77,18 @@ export default function Footer() {
             </p>
             <ul className="mt-4 space-y-2.5 font-body text-sm text-white/60">
               <li>
-                <a href="mailto:smft@undip.ac.id" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
-                  <Mail size={14} /> smft@undip.ac.id
+                <a href="mailto:smfakultasteknik@gmail.com" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
+                  <Mail size={14} /> smfakultasteknik@gmail.com
                 </a>
               </li>
               <li>
                 <a href="https://www.instagram.com/smftundip/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
                   <Instagram size={14} /> @smftundip
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/@senat.ft.undip" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-gold-300">
+                  <Music2 size={14} /> @senat.ft.undip
                 </a>
               </li>
               <li>
@@ -93,11 +98,14 @@ export default function Footer() {
               </li>
             </ul>
             <div className="mt-6 flex justify-center gap-5 text-white/60 md:justify-start">
-              <a href="mailto:smft@undip.ac.id" aria-label="Email" className="transition-colors hover:text-gold-300">
+              <a href="mailto:smfakultasteknik@gmail.com" aria-label="Email" className="transition-colors hover:text-gold-300">
                 <Mail size={18} />
               </a>
               <a href="https://www.instagram.com/smftundip/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-gold-300">
                 <Instagram size={18} />
+              </a>
+              <a href="https://www.tiktok.com/@senat.ft.undip" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="transition-colors hover:text-gold-300">
+                <Music2 size={18} />
               </a>
               <a href="https://wa.me/628383443886" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="transition-colors hover:text-gold-300">
                 <Phone size={18} />
