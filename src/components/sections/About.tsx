@@ -14,7 +14,7 @@ const fungsi = ["Representasi", "Legislasi", "Pengawasan", "Penganggaran", "Advo
 
 function Counter({ to }: { to: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true });
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
             <p className="font-heading text-xs uppercase tracking-[0.4em] text-gold-300">
@@ -75,7 +75,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="lg:sticky lg:top-28"
           >
